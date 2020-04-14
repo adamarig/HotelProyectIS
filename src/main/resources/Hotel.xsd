@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.example.org/Hotel" xmlns:tns="http://www.example.org/Hotel" elementFormDefault="qualified">
+
+<element name ="ReservacionRequest">
+  <complexType>
+  <sequence>
+    <element name ="idReservacion" type = "string"></element>
+  	<element name ="fechaLlegada" type = "string"></element>
+  	<element name ="fechaSalida" type = "string"></element>
+  	<element name ="NumAdultos" type = "int"></element>
+  	<element name ="NumNinos" type = "int"></element>
+  	<element name ="tipoHabitacion" type = "string"></element>
+  	<element name ="precio" type = "int"></element>
+  	<element name ="NombreCliente" type = "string"></element>
+  	
+  </sequence>
+  </complexType>
+   </element>
+    <element name ="ReservacionResponse">
+  <complexType>
+  <sequence>
+  	<element name ="respuesta" type = "string" ></element>
+  </sequence>
+  </complexType>
+   </element>
+
+    <element name ="CancelarReservacionRequest">
+  <complexType>
+  <sequence>
+  	<element name ="cancelar" type = "string"></element>
+  </sequence>
+  </complexType>
+   </element>
+
+  
+   <element name ="CancelarReservacionResponse">
+  <complexType>
+  <sequence>
+  	<element name ="respuesta" type = "string"></element>
+  </sequence>
+  </complexType>
+   </element>
+   
+    <element name ="EditarReservacionRequest">
+  <complexType>
+  <sequence>
+  	<element name ="fechaLlegada" type = "string"></element>
+  	<element name ="fechaSalida" type = "string"></element>
+  	<element name ="NumAdultos" type = "int"></element>
+  	<element name ="NumNinos" type = "int"></element>
+  	<element name ="tipoHabitacion" type = "string"></element>
+  	<element name ="precio" type = "int"></element>
+  	<element name ="NombreCliente" type = "string"></element>
+  </sequence>
+  </complexType>
+   </element>
+
+  
+   <element name ="EditarReservacionResponse">
+  <complexType>
+  <sequence>
+  	<element name ="respuesta" type = "string"></element>
+  </sequence>
+  </complexType>
+   </element>
+  
+   <element name ="HabitacionRequest">
+  <complexType>
+  <sequence>
+  	<element name ="tipoHabitacion" type = "string"></element>
+  </sequence>
+  </complexType>
+   </element>
+
+   <element name ="HabitacionResponse">
+  <complexType>
+  <sequence>
+  	<element name ="respuesta" type = "string"></element>
+  </sequence>
+  </complexType>
+   </element>
+  
+    <element name ="PagoRequest">
+  <complexType>
+  <sequence>
+  	<element name ="tipoPago" type = "string"></element>
+  </sequence>
+  </complexType>
+   </element>
+
+  
+   <element name ="PagoResponse">
+  <complexType>
+  <sequence>
+  	<element name ="respuesta" type = "string"></element>
+  </sequence>
+  </complexType>
+   </element>
+   
+   <element name ="DisponibilidadRequest">
+  <complexType>
+  <sequence>
+  	<element name ="TipoHabitacion" type = "string"></element>
+  </sequence>
+  </complexType>
+   </element>
+
+  
+   <element name ="DisponibilidadResponse">
+  <complexType>
+  <sequence>
+  	<element name ="respuesta" type = "string"></element>
+  </sequence>
+  </complexType>
+   </element>
+
+</schema>

@@ -1,17 +1,75 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.example.org/Hotel" xmlns:tns="http://www.example.org/Hotel" elementFormDefault="qualified">
 
-<element name ="ReservacionRequest">
+<element name ="RegistrarClienteRequest">
+  <complexType>
+   <sequence>
+  	<element name ="nombre" type = "string"></element>
+  	<element name ="apellido" type = "string"></element>
+  	<element name ="telefono" type = "int"></element>
+  	<element name ="correo" type = "string"></element>
+  	<element name ="tipoPago" type = "string"></element>
+  	
+  </sequence>
+  </complexType>
+   </element>
+    <element name ="RegistrarClienteResponse">
   <complexType>
   <sequence>
-    <element name ="idReservacion" type = "string"></element>
+  	<element name ="respuesta" type = "string" ></element>
+  </sequence>
+  </complexType>
+   </element>
+   
+   <element name ="EditarClienteRequest">
+  <complexType>
+   <sequence>
+   <element name ="idCliente" type= "int"></element>
+  	<element name ="nombre" type = "string"></element>
+  	<element name ="apellido" type = "string"></element>
+  	<element name ="telefono" type = "int"></element>
+  	<element name ="correo" type = "string"></element>
+  	<element name ="tipoPago" type = "string"></element>	
+  </sequence>
+  </complexType>
+   </element>
+   
+   
+    <element name ="EditarClienteResponse">
+  <complexType>
+  <sequence>
+  	<element name ="respuesta" type = "string" ></element>
+  </sequence>
+  </complexType>
+   </element>
+   
+       <element name ="EliminarClienteRequest">
+  <complexType>
+  <sequence>
+  	<element name ="idCliente" type = "int" ></element>
+  </sequence>
+  </complexType>
+   </element>
+   
+       <element name ="EliminarClienteResponse">
+  <complexType>
+  <sequence>
+  	<element name ="respuesta" type = "string" ></element>
+  </sequence>
+  </complexType>
+   </element>
+   
+   
+  <!-- Reservacion -->
+  <element name ="ReservacionRequest">
+  <complexType>
+  <sequence>
   	<element name ="fechaLlegada" type = "string"></element>
   	<element name ="fechaSalida" type = "string"></element>
   	<element name ="NumAdultos" type = "int"></element>
   	<element name ="NumNinos" type = "int"></element>
   	<element name ="tipoHabitacion" type = "string"></element>
-  	<element name ="precio" type = "int"></element>
-  	<element name ="NombreCliente" type = "string"></element>
+  	<element name ="idCliente" type = "int"></element>
   	
   </sequence>
   </complexType>
@@ -20,6 +78,7 @@
   <complexType>
   <sequence>
   	<element name ="respuesta" type = "string" ></element>
+  	<element name ="precio" type = "double"></element>
   </sequence>
   </complexType>
    </element>
@@ -27,7 +86,7 @@
     <element name ="CancelarReservacionRequest">
   <complexType>
   <sequence>
-  	<element name ="cancelar" type = "string"></element>
+  	<element name ="idReservacion" type = "int"></element>
   </sequence>
   </complexType>
    </element>
@@ -44,13 +103,13 @@
     <element name ="EditarReservacionRequest">
   <complexType>
   <sequence>
+    <element name ="idReservacion" type = "int"></element>
   	<element name ="fechaLlegada" type = "string"></element>
   	<element name ="fechaSalida" type = "string"></element>
   	<element name ="NumAdultos" type = "int"></element>
   	<element name ="NumNinos" type = "int"></element>
   	<element name ="tipoHabitacion" type = "string"></element>
-  	<element name ="precio" type = "int"></element>
-  	<element name ="NombreCliente" type = "string"></element>
+  	<element name ="idCliente" type = "int"></element>
   </sequence>
   </complexType>
    </element>
@@ -60,19 +119,45 @@
   <complexType>
   <sequence>
   	<element name ="respuesta" type = "string"></element>
+  	<element name ="precio" type = "double"></element>
   </sequence>
   </complexType>
    </element>
   
-   <element name ="HabitacionRequest">
+  <element name ="MostrarReservacionRequest">
   <complexType>
   <sequence>
+    <element name ="idReservacion" type = "int"></element>
+  </sequence>
+  </complexType>
+   </element>
+
+  
+   <element name ="MostrarReservacionResponse">
+  <complexType>
+  <sequence>
+  	<element name ="fechaLlegada" type = "string"></element>
+  	<element name ="fechaSalida" type = "string"></element>
+  	<element name ="NumAdultos" type = "int"></element>
+  	<element name ="NumNinos" type = "int"></element>
+  	<element name ="tipoHabitacion" type = "string"></element>
+  	<element name ="precio" type = "double"></element>
+  	<element name ="idCliente" type = "int"></element>
+  </sequence>
+  </complexType>
+   </element>
+   <element name ="AgregarHabitacionRequest">
+  <complexType>
+  <sequence>
+    <element name ="NumeroHabitacion" type = "string"></element>
+  	<element name ="Piso" type = "string"></element>
+  	<element name ="NumPersonas" type = "int"></element>
   	<element name ="tipoHabitacion" type = "string"></element>
   </sequence>
   </complexType>
    </element>
 
-   <element name ="HabitacionResponse">
+  <element name ="AgregarHabitacionResponse">
   <complexType>
   <sequence>
   	<element name ="respuesta" type = "string"></element>
@@ -80,16 +165,19 @@
   </complexType>
    </element>
   
-    <element name ="PagoRequest">
+
+   <element name ="EditarHabitacionRequest">
   <complexType>
   <sequence>
-  	<element name ="tipoPago" type = "string"></element>
+    <element name ="idHabitacion" type = "int"></element>
+  	<element name ="Piso" type = "string"></element>
+  	<element name ="NumPersonas" type = "int"></element>
+  	<element name ="tipoHabitacion" type = "string"></element>
   </sequence>
   </complexType>
    </element>
 
-  
-   <element name ="PagoResponse">
+  <element name ="EditarHabitacionResponse">
   <complexType>
   <sequence>
   	<element name ="respuesta" type = "string"></element>
@@ -97,10 +185,28 @@
   </complexType>
    </element>
    
+   
+   <element name ="EliminarHabitacionRequest">
+  <complexType>
+  <sequence>
+    <element name ="idHabitacion" type = "string"></element>
+  </sequence>
+  </complexType>
+   </element>
+
+  <element name ="EliminarHabitacionResponse">
+  <complexType>
+  <sequence>
+  	<element name ="respuesta" type = "string"></element>
+  </sequence>
+  </complexType>
+   </element>
+   
+   
    <element name ="DisponibilidadRequest">
   <complexType>
   <sequence>
-  	<element name ="TipoHabitacion" type = "string"></element>
+  	<element name ="tipoHabitacion" type = "string"></element>
   </sequence>
   </complexType>
    </element>

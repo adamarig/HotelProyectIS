@@ -25,12 +25,10 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="fechaLlegada" type="{http://www.w3.org/2001/XMLSchema}string"/>
- *         &lt;element name="fechaSalida" type="{http://www.w3.org/2001/XMLSchema}string"/>
- *         &lt;element name="NumAdultos" type="{http://www.w3.org/2001/XMLSchema}int"/>
- *         &lt;element name="NumNinos" type="{http://www.w3.org/2001/XMLSchema}int"/>
+ *         &lt;element name="NumeroHabitacion" type="{http://www.w3.org/2001/XMLSchema}string"/>
+ *         &lt;element name="Piso" type="{http://www.w3.org/2001/XMLSchema}string"/>
+ *         &lt;element name="NumPersonas" type="{http://www.w3.org/2001/XMLSchema}int"/>
  *         &lt;element name="tipoHabitacion" type="{http://www.w3.org/2001/XMLSchema}string"/>
- *         &lt;element name="idCliente" type="{http://www.w3.org/2001/XMLSchema}int"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -41,106 +39,85 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "fechaLlegada",
-    "fechaSalida",
-    "numAdultos",
-    "numNinos",
-    "tipoHabitacion",
-    "idCliente"
+    "numeroHabitacion",
+    "piso",
+    "numPersonas",
+    "tipoHabitacion"
 })
-@XmlRootElement(name = "ReservacionRequest")
-public class ReservacionRequest {
+@XmlRootElement(name = "AgregarHabitacionRequest")
+public class AgregarHabitacionRequest {
 
-    @XmlElement(required = true)
-    protected String fechaLlegada;
-    @XmlElement(required = true)
-    protected String fechaSalida;
-    @XmlElement(name = "NumAdultos")
-    protected int numAdultos;
-    @XmlElement(name = "NumNinos")
-    protected int numNinos;
+    @XmlElement(name = "NumeroHabitacion", required = true)
+    protected String numeroHabitacion;
+    @XmlElement(name = "Piso", required = true)
+    protected String piso;
+    @XmlElement(name = "NumPersonas")
+    protected int numPersonas;
     @XmlElement(required = true)
     protected String tipoHabitacion;
-    protected int idCliente;
 
     /**
-     * Obtiene el valor de la propiedad fechaLlegada.
+     * Obtiene el valor de la propiedad numeroHabitacion.
      * 
      * @return
      *     possible object is
      *     {@link String }
      *     
      */
-    public String getFechaLlegada() {
-        return fechaLlegada;
+    public String getNumeroHabitacion() {
+        return numeroHabitacion;
     }
 
     /**
-     * Define el valor de la propiedad fechaLlegada.
+     * Define el valor de la propiedad numeroHabitacion.
      * 
      * @param value
      *     allowed object is
      *     {@link String }
      *     
      */
-    public void setFechaLlegada(String value) {
-        this.fechaLlegada = value;
+    public void setNumeroHabitacion(String value) {
+        this.numeroHabitacion = value;
     }
 
     /**
-     * Obtiene el valor de la propiedad fechaSalida.
+     * Obtiene el valor de la propiedad piso.
      * 
      * @return
      *     possible object is
      *     {@link String }
      *     
      */
-    public String getFechaSalida() {
-        return fechaSalida;
+    public String getPiso() {
+        return piso;
     }
 
     /**
-     * Define el valor de la propiedad fechaSalida.
+     * Define el valor de la propiedad piso.
      * 
      * @param value
      *     allowed object is
      *     {@link String }
      *     
      */
-    public void setFechaSalida(String value) {
-        this.fechaSalida = value;
+    public void setPiso(String value) {
+        this.piso = value;
     }
 
     /**
-     * Obtiene el valor de la propiedad numAdultos.
+     * Obtiene el valor de la propiedad numPersonas.
      * 
      */
-    public int getNumAdultos() {
-        return numAdultos;
+    public int getNumPersonas() {
+        return numPersonas;
     }
 
     /**
-     * Define el valor de la propiedad numAdultos.
+     * Define el valor de la propiedad numPersonas.
      * 
      */
-    public void setNumAdultos(int value) {
-        this.numAdultos = value;
-    }
-
-    /**
-     * Obtiene el valor de la propiedad numNinos.
-     * 
-     */
-    public int getNumNinos() {
-        return numNinos;
-    }
-
-    /**
-     * Define el valor de la propiedad numNinos.
-     * 
-     */
-    public void setNumNinos(int value) {
-        this.numNinos = value;
+    public void setNumPersonas(int value) {
+        this.numPersonas = value;
     }
 
     /**
@@ -165,22 +142,6 @@ public class ReservacionRequest {
      */
     public void setTipoHabitacion(String value) {
         this.tipoHabitacion = value;
-    }
-
-    /**
-     * Obtiene el valor de la propiedad idCliente.
-     * 
-     */
-    public int getIdCliente() {
-        return idCliente;
-    }
-
-    /**
-     * Define el valor de la propiedad idCliente.
-     * 
-     */
-    public void setIdCliente(int value) {
-        this.idCliente = value;
     }
 
 }

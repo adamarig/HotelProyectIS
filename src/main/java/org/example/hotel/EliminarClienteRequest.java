@@ -24,7 +24,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="idReservacion" type="{http://www.w3.org/2001/XMLSchema}int"/>
+ *         &lt;element name="idCliente" type="{http://www.w3.org/2001/XMLSchema}int"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -35,27 +35,27 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "idReservacion"
+    "idCliente"
 })
-@XmlRootElement(name = "CancelarReservacionRequest")
-public class CancelarReservacionRequest {
+@XmlRootElement(name = "EliminarClienteRequest")
+public class EliminarClienteRequest {
 
-    protected int idReservacion;
+    protected int idCliente;
 
     /**
-     * Obtiene el valor de la propiedad idReservacion.
+     * Obtiene el valor de la propiedad idCliente.
      * 
      */
-    public int getIdReservacion() {
-        return idReservacion;
+    public int getIdCliente() {
+        return idCliente;
     }
 
     /**
-     * Define el valor de la propiedad idReservacion.
+     * Define el valor de la propiedad idCliente.
      * 
      */
-    public void setIdReservacion(int value) {
-        this.idReservacion = value;
+    public void setIdCliente(int value) {
+        this.idCliente = value;
     }
 
 }

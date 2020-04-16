@@ -25,6 +25,9 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
+ *         &lt;element name="idHabitacion" type="{http://www.w3.org/2001/XMLSchema}int"/>
+ *         &lt;element name="Piso" type="{http://www.w3.org/2001/XMLSchema}string"/>
+ *         &lt;element name="NumPersonas" type="{http://www.w3.org/2001/XMLSchema}int"/>
  *         &lt;element name="tipoHabitacion" type="{http://www.w3.org/2001/XMLSchema}string"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
@@ -36,13 +39,77 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
+    "idHabitacion",
+    "piso",
+    "numPersonas",
     "tipoHabitacion"
 })
-@XmlRootElement(name = "DisponibilidadRequest")
-public class DisponibilidadRequest {
+@XmlRootElement(name = "EditarHabitacionRequest")
+public class EditarHabitacionRequest {
 
+    protected int idHabitacion;
+    @XmlElement(name = "Piso", required = true)
+    protected String piso;
+    @XmlElement(name = "NumPersonas")
+    protected int numPersonas;
     @XmlElement(required = true)
     protected String tipoHabitacion;
+
+    /**
+     * Obtiene el valor de la propiedad idHabitacion.
+     * 
+     */
+    public int getIdHabitacion() {
+        return idHabitacion;
+    }
+
+    /**
+     * Define el valor de la propiedad idHabitacion.
+     * 
+     */
+    public void setIdHabitacion(int value) {
+        this.idHabitacion = value;
+    }
+
+    /**
+     * Obtiene el valor de la propiedad piso.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getPiso() {
+        return piso;
+    }
+
+    /**
+     * Define el valor de la propiedad piso.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setPiso(String value) {
+        this.piso = value;
+    }
+
+    /**
+     * Obtiene el valor de la propiedad numPersonas.
+     * 
+     */
+    public int getNumPersonas() {
+        return numPersonas;
+    }
+
+    /**
+     * Define el valor de la propiedad numPersonas.
+     * 
+     */
+    public void setNumPersonas(int value) {
+        this.numPersonas = value;
+    }
 
     /**
      * Obtiene el valor de la propiedad tipoHabitacion.

@@ -10,6 +10,7 @@ package org.example.hotel;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
@@ -24,7 +25,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="idReservacion" type="{http://www.w3.org/2001/XMLSchema}int"/>
+ *         &lt;element name="idHabitacion" type="{http://www.w3.org/2001/XMLSchema}string"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -35,27 +36,36 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "idReservacion"
+    "idHabitacion"
 })
-@XmlRootElement(name = "CancelarReservacionRequest")
-public class CancelarReservacionRequest {
+@XmlRootElement(name = "EliminarHabitacionRequest")
+public class EliminarHabitacionRequest {
 
-    protected int idReservacion;
+    @XmlElement(required = true)
+    protected String idHabitacion;
 
     /**
-     * Obtiene el valor de la propiedad idReservacion.
+     * Obtiene el valor de la propiedad idHabitacion.
      * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
-    public int getIdReservacion() {
-        return idReservacion;
+    public String getIdHabitacion() {
+        return idHabitacion;
     }
 
     /**
-     * Define el valor de la propiedad idReservacion.
+     * Define el valor de la propiedad idHabitacion.
      * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
      */
-    public void setIdReservacion(int value) {
-        this.idReservacion = value;
+    public void setIdHabitacion(String value) {
+        this.idHabitacion = value;
     }
 
 }

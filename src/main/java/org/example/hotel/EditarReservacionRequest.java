@@ -2,7 +2,7 @@
 // Este archivo ha sido generado por la arquitectura JavaTM para la implantación de la referencia de enlace (JAXB) XML v2.2.7 
 // Visite <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
 // Todas las modificaciones realizadas en este archivo se perderán si se vuelve a compilar el esquema de origen. 
-// Generado el: 2020.04.03 a las 12:16:32 AM CST 
+// Generado el: 2020.04.16 a las 03:46:58 PM CDT 
 //
 
 
@@ -25,13 +25,13 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="Llegada" type="{http://www.w3.org/2001/XMLSchema}string"/>
- *         &lt;element name="Salida" type="{http://www.w3.org/2001/XMLSchema}string"/>
+ *         &lt;element name="idReservacion" type="{http://www.w3.org/2001/XMLSchema}int"/>
+ *         &lt;element name="fechaLlegada" type="{http://www.w3.org/2001/XMLSchema}string"/>
+ *         &lt;element name="fechaSalida" type="{http://www.w3.org/2001/XMLSchema}string"/>
  *         &lt;element name="NumAdultos" type="{http://www.w3.org/2001/XMLSchema}int"/>
  *         &lt;element name="NumNinos" type="{http://www.w3.org/2001/XMLSchema}int"/>
  *         &lt;element name="tipoHabitacion" type="{http://www.w3.org/2001/XMLSchema}string"/>
- *         &lt;element name="precio" type="{http://www.w3.org/2001/XMLSchema}int"/>
- *         &lt;element name="NombreCliente" type="{http://www.w3.org/2001/XMLSchema}string"/>
+ *         &lt;element name="idCliente" type="{http://www.w3.org/2001/XMLSchema}int"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -42,77 +42,92 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "llegada",
-    "salida",
+    "idReservacion",
+    "fechaLlegada",
+    "fechaSalida",
     "numAdultos",
     "numNinos",
     "tipoHabitacion",
-    "precio",
-    "nombreCliente"
+    "idCliente"
 })
 @XmlRootElement(name = "EditarReservacionRequest")
 public class EditarReservacionRequest {
 
-    @XmlElement(name = "Llegada", required = true)
-    protected String llegada;
-    @XmlElement(name = "Salida", required = true)
-    protected String salida;
+    protected int idReservacion;
+    @XmlElement(required = true)
+    protected String fechaLlegada;
+    @XmlElement(required = true)
+    protected String fechaSalida;
     @XmlElement(name = "NumAdultos")
     protected int numAdultos;
     @XmlElement(name = "NumNinos")
     protected int numNinos;
     @XmlElement(required = true)
     protected String tipoHabitacion;
-    protected int precio;
-    @XmlElement(name = "NombreCliente", required = true)
-    protected String nombreCliente;
+    protected int idCliente;
 
     /**
-     * Obtiene el valor de la propiedad llegada.
+     * Obtiene el valor de la propiedad idReservacion.
+     * 
+     */
+    public int getIdReservacion() {
+        return idReservacion;
+    }
+
+    /**
+     * Define el valor de la propiedad idReservacion.
+     * 
+     */
+    public void setIdReservacion(int value) {
+        this.idReservacion = value;
+    }
+
+    /**
+     * Obtiene el valor de la propiedad fechaLlegada.
      * 
      * @return
      *     possible object is
      *     {@link String }
      *     
      */
-    public String getLlegada() {
-        return llegada;
+    public String getFechaLlegada() {
+        return fechaLlegada;
     }
 
     /**
-     * Define el valor de la propiedad llegada.
+     * Define el valor de la propiedad fechaLlegada.
      * 
      * @param value
      *     allowed object is
      *     {@link String }
      *     
      */
-    public void setLlegada(String value) {
-        this.llegada = value;
+    public void setFechaLlegada(String value) {
+        this.fechaLlegada = value;
     }
 
     /**
-     * Obtiene el valor de la propiedad salida.
+     * Obtiene el valor de la propiedad fechaSalida.
      * 
      * @return
      *     possible object is
      *     {@link String }
      *     
      */
-    public String getSalida() {
-        return salida;
+    public String getFechaSalida() {
+        return fechaSalida;
     }
 
     /**
-     * Define el valor de la propiedad salida.
+     * Define el valor de la propiedad fechaSalida.
      * 
      * @param value
      *     allowed object is
      *     {@link String }
      *     
      */
-    public void setSalida(String value) {
-        this.salida = value;
+    public void setFechaSalida(String value) {
+        this.fechaSalida = value;
     }
 
     /**
@@ -172,43 +187,19 @@ public class EditarReservacionRequest {
     }
 
     /**
-     * Obtiene el valor de la propiedad precio.
+     * Obtiene el valor de la propiedad idCliente.
      * 
      */
-    public int getPrecio() {
-        return precio;
+    public int getIdCliente() {
+        return idCliente;
     }
 
     /**
-     * Define el valor de la propiedad precio.
+     * Define el valor de la propiedad idCliente.
      * 
      */
-    public void setPrecio(int value) {
-        this.precio = value;
-    }
-
-    /**
-     * Obtiene el valor de la propiedad nombreCliente.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getNombreCliente() {
-        return nombreCliente;
-    }
-
-    /**
-     * Define el valor de la propiedad nombreCliente.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setNombreCliente(String value) {
-        this.nombreCliente = value;
+    public void setIdCliente(int value) {
+        this.idCliente = value;
     }
 
 }

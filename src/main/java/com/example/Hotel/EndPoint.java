@@ -29,9 +29,8 @@ public class EndPoint {
 	@ResponsePayload
 	public ReservacionResponse getLlegada(@RequestPayload ReservacionRequest peticion) {
 		ReservacionResponse respuesta= new ReservacionResponse();
-		respuesta.setRespuesta("Tu reservación es: " + peticion.getLlegada() +  peticion.getSalida()
-		+ peticion.getNumAdultos() + peticion.getNumNinos() + peticion.getPrecio()
-		+  peticion.getTipoHabitacion() + peticion.getNombreCliente());
+		respuesta.setRespuesta("Tu reservación es: " + peticion.getFechaLlegada() +  peticion.getFechaSalida()
+		+ peticion.getNumAdultos() + peticion.getNumNinos() +  peticion.getTipoHabitacion() );
 		return respuesta ;
 	
 	}
@@ -39,11 +38,19 @@ public class EndPoint {
 	@PayloadRoot(namespace = "http://www.example.org/Hotel",localPart = "CancelarReservacionRequest")
 
 	@ResponsePayload
-	public CancelarReservacionResponse getCancelar(@RequestPayload CancelarReservacionRequest peticion) {
-		CancelarReservacionResponse respuesta= new CancelarReservacionResponse();
-		respuesta.setRespuesta("Reservación Cancelada: " + peticion.getCancelar());
-		return respuesta;
 	
+	public CancelarReservacionResponse getCancelarReservacion (@RequestPayload CancelarReservacionRequest peticion) {
+		CancelarReservacionResponse respuesta = new CancelarReservacionResponse();
+		
+		ReservacionHotel reservacion = new ReservacionHotel(peticion.getIdReservacion());
+		
+		if (reservacion.eliminarReservacion()) {
+			respuesta.setRespuesta("Se ha eliminado la reservacion del sistema");
+		} else {
+			respuesta.setRespuesta("No se ha podido eliminar la reservacion de la base de datos");
+		}
+		
+		return respuesta;
 	}
 	
 	@PayloadRoot(namespace = "http://www.example.org/Hotel",localPart = "DisponibilidadRequest")
@@ -61,7 +68,7 @@ public class EndPoint {
 	@ResponsePayload
 	public EditarReservacionResponse getLlegada(@RequestPayload EditarReservacionRequest peticion) {
 		EditarReservacionResponse respuesta= new EditarReservacionResponse();
-		respuesta.setRespuesta("Su reservación fue editada con exito: " + peticion.getLlegada() + peticion.getSalida() 
+		respuesta.setRespuesta("Su reservación fue editada con exito: " + peticion.getFechaLlegada() + peticion.getFechaSalida() 
 		+ peticion.getNumAdultos() + peticion.getNumNinos() + peticion.getPrecio()
 		+  peticion.getTipoHabitacion()+ peticion.getNombreCliente());
 		return respuesta;

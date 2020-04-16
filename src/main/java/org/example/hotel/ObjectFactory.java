@@ -2,7 +2,7 @@
 // Este archivo ha sido generado por la arquitectura JavaTM para la implantación de la referencia de enlace (JAXB) XML v2.2.7 
 // Visite <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
 // Todas las modificaciones realizadas en este archivo se perderán si se vuelve a compilar el esquema de origen. 
-// Generado el: 2020.04.03 a las 12:16:32 AM CST 
+// Generado el: 2020.04.16 a las 03:46:58 PM CDT 
 //
 
 
@@ -45,14 +45,6 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link HabitacionResponse }
-     * 
-     */
-    public HabitacionResponse createHabitacionResponse() {
-        return new HabitacionResponse();
-    }
-
-    /**
      * Create an instance of {@link CancelarReservacionRequest }
      * 
      */
@@ -77,6 +69,78 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link AgregarHabitacionRequest }
+     * 
+     */
+    public AgregarHabitacionRequest createAgregarHabitacionRequest() {
+        return new AgregarHabitacionRequest();
+    }
+
+    /**
+     * Create an instance of {@link MostrarReservacionRequest }
+     * 
+     */
+    public MostrarReservacionRequest createMostrarReservacionRequest() {
+        return new MostrarReservacionRequest();
+    }
+
+    /**
+     * Create an instance of {@link EditarHabitacionRequest }
+     * 
+     */
+    public EditarHabitacionRequest createEditarHabitacionRequest() {
+        return new EditarHabitacionRequest();
+    }
+
+    /**
+     * Create an instance of {@link EliminarHabitacionRequest }
+     * 
+     */
+    public EliminarHabitacionRequest createEliminarHabitacionRequest() {
+        return new EliminarHabitacionRequest();
+    }
+
+    /**
+     * Create an instance of {@link RegistrarClienteRequest }
+     * 
+     */
+    public RegistrarClienteRequest createRegistrarClienteRequest() {
+        return new RegistrarClienteRequest();
+    }
+
+    /**
+     * Create an instance of {@link MostrarReservacionResponse }
+     * 
+     */
+    public MostrarReservacionResponse createMostrarReservacionResponse() {
+        return new MostrarReservacionResponse();
+    }
+
+    /**
+     * Create an instance of {@link EditarClienteResponse }
+     * 
+     */
+    public EditarClienteResponse createEditarClienteResponse() {
+        return new EditarClienteResponse();
+    }
+
+    /**
+     * Create an instance of {@link EliminarClienteRequest }
+     * 
+     */
+    public EliminarClienteRequest createEliminarClienteRequest() {
+        return new EliminarClienteRequest();
+    }
+
+    /**
+     * Create an instance of {@link RegistrarClienteResponse }
+     * 
+     */
+    public RegistrarClienteResponse createRegistrarClienteResponse() {
+        return new RegistrarClienteResponse();
+    }
+
+    /**
      * Create an instance of {@link EditarReservacionRequest }
      * 
      */
@@ -93,19 +157,27 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link HabitacionRequest }
+     * Create an instance of {@link EditarHabitacionResponse }
      * 
      */
-    public HabitacionRequest createHabitacionRequest() {
-        return new HabitacionRequest();
+    public EditarHabitacionResponse createEditarHabitacionResponse() {
+        return new EditarHabitacionResponse();
     }
 
     /**
-     * Create an instance of {@link PagoRequest }
+     * Create an instance of {@link EliminarClienteResponse }
      * 
      */
-    public PagoRequest createPagoRequest() {
-        return new PagoRequest();
+    public EliminarClienteResponse createEliminarClienteResponse() {
+        return new EliminarClienteResponse();
+    }
+
+    /**
+     * Create an instance of {@link AgregarHabitacionResponse }
+     * 
+     */
+    public AgregarHabitacionResponse createAgregarHabitacionResponse() {
+        return new AgregarHabitacionResponse();
     }
 
     /**
@@ -117,11 +189,19 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link PagoResponse }
+     * Create an instance of {@link EditarClienteRequest }
      * 
      */
-    public PagoResponse createPagoResponse() {
-        return new PagoResponse();
+    public EditarClienteRequest createEditarClienteRequest() {
+        return new EditarClienteRequest();
+    }
+
+    /**
+     * Create an instance of {@link EliminarHabitacionResponse }
+     * 
+     */
+    public EliminarHabitacionResponse createEliminarHabitacionResponse() {
+        return new EliminarHabitacionResponse();
     }
 
     /**

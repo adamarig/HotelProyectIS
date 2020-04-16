@@ -37,8 +37,8 @@ import javax.xml.bind.annotation.XmlType;
 @XmlType(name = "", propOrder = {
     "idReservacion"
 })
-@XmlRootElement(name = "CancelarReservacionRequest")
-public class CancelarReservacionRequest {
+@XmlRootElement(name = "MostrarReservacionRequest")
+public class MostrarReservacionRequest {
 
     protected int idReservacion;
 

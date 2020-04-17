@@ -2,7 +2,7 @@
 // Este archivo ha sido generado por la arquitectura JavaTM para la implantación de la referencia de enlace (JAXB) XML v2.2.7 
 // Visite <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
 // Todas las modificaciones realizadas en este archivo se perderán si se vuelve a compilar el esquema de origen. 
-// Generado el: 2020.04.16 a las 03:46:58 PM CDT 
+// Generado el: 2020.04.16 a las 09:58:12 PM CDT 
 //
 
 
@@ -25,7 +25,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="idHabitacion" type="{http://www.w3.org/2001/XMLSchema}int"/>
+ *         &lt;element name="NumeroHabitacion" type="{http://www.w3.org/2001/XMLSchema}int"/>
  *         &lt;element name="Piso" type="{http://www.w3.org/2001/XMLSchema}string"/>
  *         &lt;element name="NumPersonas" type="{http://www.w3.org/2001/XMLSchema}int"/>
  *         &lt;element name="tipoHabitacion" type="{http://www.w3.org/2001/XMLSchema}string"/>
@@ -39,7 +39,7 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "idHabitacion",
+    "numeroHabitacion",
     "piso",
     "numPersonas",
     "tipoHabitacion"
@@ -47,7 +47,8 @@ import javax.xml.bind.annotation.XmlType;
 @XmlRootElement(name = "EditarHabitacionRequest")
 public class EditarHabitacionRequest {
 
-    protected int idHabitacion;
+    @XmlElement(name = "NumeroHabitacion")
+    protected int numeroHabitacion;
     @XmlElement(name = "Piso", required = true)
     protected String piso;
     @XmlElement(name = "NumPersonas")
@@ -56,19 +57,19 @@ public class EditarHabitacionRequest {
     protected String tipoHabitacion;
 
     /**
-     * Obtiene el valor de la propiedad idHabitacion.
+     * Obtiene el valor de la propiedad numeroHabitacion.
      * 
      */
-    public int getIdHabitacion() {
-        return idHabitacion;
+    public int getNumeroHabitacion() {
+        return numeroHabitacion;
     }
 
     /**
-     * Define el valor de la propiedad idHabitacion.
+     * Define el valor de la propiedad numeroHabitacion.
      * 
      */
-    public void setIdHabitacion(int value) {
-        this.idHabitacion = value;
+    public void setNumeroHabitacion(int value) {
+        this.numeroHabitacion = value;
     }
 
     /**

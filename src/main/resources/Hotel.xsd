@@ -64,8 +64,8 @@
   <element name ="ReservacionRequest">
   <complexType>
   <sequence>
-  	<element name ="fechaLlegada" type = "string"></element>
-  	<element name ="fechaSalida" type = "string"></element>
+  	<element name ="fechaLlegada" type = "date"></element>
+  	<element name ="fechaSalida" type = "date"></element>
   	<element name ="NumAdultos" type = "int"></element>
   	<element name ="NumNinos" type = "int"></element>
   	<element name ="tipoHabitacion" type = "string"></element>
@@ -169,7 +169,7 @@
    <element name ="EditarHabitacionRequest">
   <complexType>
   <sequence>
-    <element name ="idHabitacion" type = "int"></element>
+    <element name ="NumeroHabitacion" type = "int"></element>
   	<element name ="Piso" type = "string"></element>
   	<element name ="NumPersonas" type = "int"></element>
   	<element name ="tipoHabitacion" type = "string"></element>

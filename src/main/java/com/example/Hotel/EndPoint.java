@@ -2,12 +2,12 @@ package com.example.Hotel;
 
 
 import org.example.hotel.CancelarReservacionResponse;
+import org.example.hotel.AgregarHabitacionRequest;
+import org.example.hotel.AgregarHabitacionResponse;
 import org.example.hotel.CancelarReservacionRequest;
 import org.example.hotel.DisponibilidadRequest;
 import org.example.hotel.DisponibilidadResponse;
 import org.example.hotel.EditarReservacionResponse;
-import org.example.hotel.HabitacionRequest;
-import org.example.hotel.HabitacionResponse;
 import org.example.hotel.PagoRequest;
 import org.example.hotel.PagoResponse;
 import org.example.hotel.EditarReservacionRequest;
@@ -37,21 +37,7 @@ public class EndPoint {
 	
 	@PayloadRoot(namespace = "http://www.example.org/Hotel",localPart = "CancelarReservacionRequest")
 
-	@ResponsePayload
 	
-	public CancelarReservacionResponse getCancelarReservacion (@RequestPayload CancelarReservacionRequest peticion) {
-		CancelarReservacionResponse respuesta = new CancelarReservacionResponse();
-		
-		ReservacionHotel reservacion = new ReservacionHotel(peticion.getIdReservacion());
-		
-		if (reservacion.eliminarReservacion()) {
-			respuesta.setRespuesta("Se ha eliminado la reservacion del sistema");
-		} else {
-			respuesta.setRespuesta("No se ha podido eliminar la reservacion de la base de datos");
-		}
-		
-		return respuesta;
-	}
 	
 	@PayloadRoot(namespace = "http://www.example.org/Hotel",localPart = "DisponibilidadRequest")
 
@@ -69,8 +55,8 @@ public class EndPoint {
 	public EditarReservacionResponse getLlegada(@RequestPayload EditarReservacionRequest peticion) {
 		EditarReservacionResponse respuesta= new EditarReservacionResponse();
 		respuesta.setRespuesta("Su reservación fue editada con exito: " + peticion.getFechaLlegada() + peticion.getFechaSalida() 
-		+ peticion.getNumAdultos() + peticion.getNumNinos() + peticion.getPrecio()
-		+  peticion.getTipoHabitacion()+ peticion.getNombreCliente());
+		+ peticion.getNumAdultos() + peticion.getNumNinos() 
+		+  peticion.getTipoHabitacion()+ peticion.getIdCliente());
 		return respuesta;
 	
 	}
@@ -78,21 +64,13 @@ public class EndPoint {
 	@PayloadRoot(namespace = "http://www.example.org/Hotel",localPart = "HabitacionRequest")
 
 	@ResponsePayload
-	public HabitacionResponse getTipoHabitacion(@RequestPayload HabitacionRequest peticion) {
-		HabitacionResponse respuesta= new HabitacionResponse();
+	public AgregarHabitacionResponse getTipoHabitacion(@RequestPayload AgregarHabitacionRequest peticion) {
+		AgregarHabitacionResponse respuesta= new AgregarHabitacionResponse();
 		respuesta.setRespuesta("Tipo de habitación: " + peticion.getTipoHabitacion());
 		return respuesta;
 	
 	}
 	
-	@PayloadRoot(namespace = "http://www.example.org/Hotel",localPart = "PagoRequest")
-
-	@ResponsePayload
-	public PagoResponse getTipoPago(@RequestPayload PagoRequest peticion) {
-		PagoResponse respuesta= new PagoResponse();
-		respuesta.setRespuesta("Su pago fue: " + peticion.getTipoPago());
-		return respuesta;
 	
-	}
 	
 }

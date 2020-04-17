@@ -2,7 +2,7 @@
 // Este archivo ha sido generado por la arquitectura JavaTM para la implantación de la referencia de enlace (JAXB) XML v2.2.7 
 // Visite <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
 // Todas las modificaciones realizadas en este archivo se perderán si se vuelve a compilar el esquema de origen. 
-// Generado el: 2020.04.16 a las 03:46:58 PM CDT 
+// Generado el: 2020.04.16 a las 09:58:12 PM CDT 
 //
 
 
@@ -12,7 +12,9 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
+import javax.xml.datatype.XMLGregorianCalendar;
 
 
 /**
@@ -25,8 +27,8 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="fechaLlegada" type="{http://www.w3.org/2001/XMLSchema}string"/>
- *         &lt;element name="fechaSalida" type="{http://www.w3.org/2001/XMLSchema}string"/>
+ *         &lt;element name="fechaLlegada" type="{http://www.w3.org/2001/XMLSchema}date"/>
+ *         &lt;element name="fechaSalida" type="{http://www.w3.org/2001/XMLSchema}date"/>
  *         &lt;element name="NumAdultos" type="{http://www.w3.org/2001/XMLSchema}int"/>
  *         &lt;element name="NumNinos" type="{http://www.w3.org/2001/XMLSchema}int"/>
  *         &lt;element name="tipoHabitacion" type="{http://www.w3.org/2001/XMLSchema}string"/>
@@ -52,9 +54,11 @@ import javax.xml.bind.annotation.XmlType;
 public class ReservacionRequest {
 
     @XmlElement(required = true)
-    protected String fechaLlegada;
+    @XmlSchemaType(name = "date")
+    protected XMLGregorianCalendar fechaLlegada;
     @XmlElement(required = true)
-    protected String fechaSalida;
+    @XmlSchemaType(name = "date")
+    protected XMLGregorianCalendar fechaSalida;
     @XmlElement(name = "NumAdultos")
     protected int numAdultos;
     @XmlElement(name = "NumNinos")
@@ -68,10 +72,10 @@ public class ReservacionRequest {
      * 
      * @return
      *     possible object is
-     *     {@link String }
+     *     {@link XMLGregorianCalendar }
      *     
      */
-    public String getFechaLlegada() {
+    public XMLGregorianCalendar getFechaLlegada() {
         return fechaLlegada;
     }
 
@@ -80,10 +84,10 @@ public class ReservacionRequest {
      * 
      * @param value
      *     allowed object is
-     *     {@link String }
+     *     {@link XMLGregorianCalendar }
      *     
      */
-    public void setFechaLlegada(String value) {
+    public void setFechaLlegada(XMLGregorianCalendar value) {
         this.fechaLlegada = value;
     }
 
@@ -92,10 +96,10 @@ public class ReservacionRequest {
      * 
      * @return
      *     possible object is
-     *     {@link String }
+     *     {@link XMLGregorianCalendar }
      *     
      */
-    public String getFechaSalida() {
+    public XMLGregorianCalendar getFechaSalida() {
         return fechaSalida;
     }
 
@@ -104,10 +108,10 @@ public class ReservacionRequest {
      * 
      * @param value
      *     allowed object is
-     *     {@link String }
+     *     {@link XMLGregorianCalendar }
      *     
      */
-    public void setFechaSalida(String value) {
+    public void setFechaSalida(XMLGregorianCalendar value) {
         this.fechaSalida = value;
     }
 

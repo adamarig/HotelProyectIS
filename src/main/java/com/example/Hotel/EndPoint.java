@@ -39,7 +39,7 @@ public class EndPoint {
 	@ResponsePayload
 	public ReservacionResponse getReservacion(@RequestPayload ReservacionRequest peticion) {
 		ReservacionResponse respuesta= new ReservacionResponse();
-		respuesta.setRespuesta("Tu reservación es: " + peticion.getFechaLlegada() +  peticion.getFechaSalida()
+		respuesta.setRespuesta("Tu reservación ha sido un exito: " + peticion.getFechaLlegada() +  peticion.getFechaSalida()
 		+ peticion.getNumAdultos() + peticion.getNumNinos() +  peticion.getTipoHabitacion() );
 		return respuesta ;
 	
@@ -118,7 +118,7 @@ public class EndPoint {
 	@ResponsePayload
 	public AgregarHabitacionResponse getAgregarHabitacion(@RequestPayload AgregarHabitacionRequest peticion) {
 		AgregarHabitacionResponse respuesta= new AgregarHabitacionResponse();
-		respuesta.setRespuesta("Tipo de habitación: " + peticion.getNumeroHabitacion() + peticion.getNumPersonas()+ peticion.getPiso()+ peticion.getTipoHabitacion());
+		respuesta.setRespuesta("Habitacion agregada con exito: " + peticion.getNumeroHabitacion() + peticion.getNumPersonas()+ peticion.getPiso()+ peticion.getTipoHabitacion());
 		return respuesta;
 	
 	}
@@ -129,7 +129,7 @@ public class EndPoint {
 	@ResponsePayload
 	public EditarHabitacionResponse getEditarHabitacion(@RequestPayload EditarHabitacionRequest peticion) {
 		EditarHabitacionResponse respuesta= new EditarHabitacionResponse();
-		respuesta.setRespuesta("Tipo de habitación: " + peticion.getTipoHabitacion());
+		respuesta.setRespuesta("Datos de habitacion han sido editados con exito: " + peticion.getTipoHabitacion());
 		return respuesta;
 	
 	}
@@ -140,7 +140,7 @@ public class EndPoint {
 	@ResponsePayload
 	public EliminarHabitacionResponse getEliminarHabitacion(@RequestPayload EliminarHabitacionRequest peticion) {
 		EliminarHabitacionResponse respuesta= new EliminarHabitacionResponse();
-		respuesta.setRespuesta("Tipo de habitación: " + peticion.getIdHabitacion());
+		respuesta.setRespuesta("Habitacion eliminada con exito: " + peticion.getIdHabitacion());
 		return respuesta;
 	
 	}

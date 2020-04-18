@@ -143,6 +143,7 @@
   	<element name ="tipoHabitacion" type = "string"></element>
   	<element name ="precio" type = "double"></element>
   	<element name ="idCliente" type = "int"></element>
+  	<element name ="respuesta" type = "string"></element>
   </sequence>
   </complexType>
    </element>

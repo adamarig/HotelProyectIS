@@ -2,7 +2,7 @@
 // Este archivo ha sido generado por la arquitectura JavaTM para la implantación de la referencia de enlace (JAXB) XML v2.2.7 
 // Visite <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
 // Todas las modificaciones realizadas en este archivo se perderán si se vuelve a compilar el esquema de origen. 
-// Generado el: 2020.04.16 a las 09:58:12 PM CDT 
+// Generado el: 2020.04.17 a las 07:09:41 PM CDT 
 //
 
 
@@ -32,6 +32,7 @@ import javax.xml.bind.annotation.XmlType;
  *         &lt;element name="tipoHabitacion" type="{http://www.w3.org/2001/XMLSchema}string"/>
  *         &lt;element name="precio" type="{http://www.w3.org/2001/XMLSchema}double"/>
  *         &lt;element name="idCliente" type="{http://www.w3.org/2001/XMLSchema}int"/>
+ *         &lt;element name="respuesta" type="{http://www.w3.org/2001/XMLSchema}string"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -48,7 +49,8 @@ import javax.xml.bind.annotation.XmlType;
     "numNinos",
     "tipoHabitacion",
     "precio",
-    "idCliente"
+    "idCliente",
+    "respuesta"
 })
 @XmlRootElement(name = "MostrarReservacionResponse")
 public class MostrarReservacionResponse {
@@ -65,6 +67,8 @@ public class MostrarReservacionResponse {
     protected String tipoHabitacion;
     protected double precio;
     protected int idCliente;
+    @XmlElement(required = true)
+    protected String respuesta;
 
     /**
      * Obtiene el valor de la propiedad fechaLlegada.
@@ -200,6 +204,30 @@ public class MostrarReservacionResponse {
      */
     public void setIdCliente(int value) {
         this.idCliente = value;
+    }
+
+    /**
+     * Obtiene el valor de la propiedad respuesta.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getRespuesta() {
+        return respuesta;
+    }
+
+    /**
+     * Define el valor de la propiedad respuesta.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setRespuesta(String value) {
+        this.respuesta = value;
     }
 
 }

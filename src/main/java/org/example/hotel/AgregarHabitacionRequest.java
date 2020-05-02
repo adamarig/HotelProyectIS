@@ -2,7 +2,7 @@
 // Este archivo ha sido generado por la arquitectura JavaTM para la implantación de la referencia de enlace (JAXB) XML v2.2.7 
 // Visite <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
 // Todas las modificaciones realizadas en este archivo se perderán si se vuelve a compilar el esquema de origen. 
-// Generado el: 2020.04.17 a las 07:09:41 PM CDT 
+// Generado el: 2020.05.01 a las 08:19:51 PM CDT 
 //
 
 
@@ -27,7 +27,7 @@ import javax.xml.bind.annotation.XmlType;
  *       &lt;sequence>
  *         &lt;element name="NumeroHabitacion" type="{http://www.w3.org/2001/XMLSchema}string"/>
  *         &lt;element name="Piso" type="{http://www.w3.org/2001/XMLSchema}string"/>
- *         &lt;element name="NumPersonas" type="{http://www.w3.org/2001/XMLSchema}int"/>
+ *         &lt;element name="NumPersonas" type="{http://www.w3.org/2001/XMLSchema}string"/>
  *         &lt;element name="tipoHabitacion" type="{http://www.w3.org/2001/XMLSchema}string"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
@@ -51,8 +51,8 @@ public class AgregarHabitacionRequest {
     protected String numeroHabitacion;
     @XmlElement(name = "Piso", required = true)
     protected String piso;
-    @XmlElement(name = "NumPersonas")
-    protected int numPersonas;
+    @XmlElement(name = "NumPersonas", required = true)
+    protected String numPersonas;
     @XmlElement(required = true)
     protected String tipoHabitacion;
 
@@ -107,16 +107,24 @@ public class AgregarHabitacionRequest {
     /**
      * Obtiene el valor de la propiedad numPersonas.
      * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
-    public int getNumPersonas() {
+    public String getNumPersonas() {
         return numPersonas;
     }
 
     /**
      * Define el valor de la propiedad numPersonas.
      * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
      */
-    public void setNumPersonas(int value) {
+    public void setNumPersonas(String value) {
         this.numPersonas = value;
     }
 

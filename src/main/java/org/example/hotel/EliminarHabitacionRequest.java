@@ -2,7 +2,7 @@
 // Este archivo ha sido generado por la arquitectura JavaTM para la implantación de la referencia de enlace (JAXB) XML v2.2.7 
 // Visite <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
 // Todas las modificaciones realizadas en este archivo se perderán si se vuelve a compilar el esquema de origen. 
-// Generado el: 2020.04.17 a las 07:09:41 PM CDT 
+// Generado el: 2020.05.01 a las 08:19:51 PM CDT 
 //
 
 
@@ -10,7 +10,6 @@ package org.example.hotel;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
@@ -25,7 +24,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="idHabitacion" type="{http://www.w3.org/2001/XMLSchema}string"/>
+ *         &lt;element name="idHabitacion" type="{http://www.w3.org/2001/XMLSchema}int"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -41,30 +40,21 @@ import javax.xml.bind.annotation.XmlType;
 @XmlRootElement(name = "EliminarHabitacionRequest")
 public class EliminarHabitacionRequest {
 
-    @XmlElement(required = true)
-    protected String idHabitacion;
+    protected int idHabitacion;
 
     /**
      * Obtiene el valor de la propiedad idHabitacion.
      * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
      */
-    public String getIdHabitacion() {
+    public int getIdHabitacion() {
         return idHabitacion;
     }
 
     /**
      * Define el valor de la propiedad idHabitacion.
      * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
      */
-    public void setIdHabitacion(String value) {
+    public void setIdHabitacion(int value) {
         this.idHabitacion = value;
     }
 

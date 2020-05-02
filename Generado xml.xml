@@ -1,0 +1,416 @@
+This XML file does not appear to have any style information associated with it. The document tree is shown below.
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:sch="http://www.example.org/Hotel" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://www.example.org/Hotel" targetNamespace="http://www.example.org/Hotel">
+<wsdl:types>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://www.example.org/Hotel">
+<element name="RegistrarClienteRequest">
+<complexType>
+<sequence>
+<element name="nombre" type="string"/>
+<element name="apellido" type="string"/>
+<element name="telefono" type="int"/>
+<element name="correo" type="string"/>
+<element name="tipoPago" type="string"/>
+</sequence>
+</complexType>
+</element>
+<element name="RegistrarClienteResponse">
+<complexType>
+<sequence>
+<element name="respuesta" type="string"/>
+</sequence>
+</complexType>
+</element>
+<element name="EditarClienteRequest">
+<complexType>
+<sequence>
+<element name="idCliente" type="int"/>
+<element name="nombre" type="string"/>
+<element name="apellido" type="string"/>
+<element name="telefono" type="int"/>
+<element name="correo" type="string"/>
+<element name="tipoPago" type="string"/>
+</sequence>
+</complexType>
+</element>
+<element name="EditarClienteResponse">
+<complexType>
+<sequence>
+<element name="respuesta" type="string"/>
+</sequence>
+</complexType>
+</element>
+<element name="EliminarClienteRequest">
+<complexType>
+<sequence>
+<element name="idCliente" type="int"/>
+</sequence>
+</complexType>
+</element>
+<element name="EliminarClienteResponse">
+<complexType>
+<sequence>
+<element name="respuesta" type="string"/>
+</sequence>
+</complexType>
+</element>
+<!--  Reservacion  -->
+<element name="ReservacionRequest">
+<complexType>
+<sequence>
+<element name="fechaLlegada" type="date"/>
+<element name="fechaSalida" type="date"/>
+<element name="NumAdultos" type="int"/>
+<element name="NumNinos" type="int"/>
+<element name="tipoHabitacion" type="string"/>
+<element name="idCliente" type="int"/>
+</sequence>
+</complexType>
+</element>
+<element name="ReservacionResponse">
+<complexType>
+<sequence>
+<element name="respuesta" type="string"/>
+<element name="precio" type="double"/>
+</sequence>
+</complexType>
+</element>
+<element name="CancelarReservacionRequest">
+<complexType>
+<sequence>
+<element name="idReservacion" type="int"/>
+</sequence>
+</complexType>
+</element>
+<element name="CancelarReservacionResponse">
+<complexType>
+<sequence>
+<element name="respuesta" type="string"/>
+</sequence>
+</complexType>
+</element>
+<element name="EditarReservacionRequest">
+<complexType>
+<sequence>
+<element name="idReservacion" type="int"/>
+<element name="fechaLlegada" type="string"/>
+<element name="fechaSalida" type="string"/>
+<element name="NumAdultos" type="int"/>
+<element name="NumNinos" type="int"/>
+<element name="tipoHabitacion" type="string"/>
+<element name="idCliente" type="int"/>
+</sequence>
+</complexType>
+</element>
+<element name="EditarReservacionResponse">
+<complexType>
+<sequence>
+<element name="respuesta" type="string"/>
+<element name="precio" type="double"/>
+</sequence>
+</complexType>
+</element>
+<element name="MostrarReservacionRequest">
+<complexType>
+<sequence>
+<element name="idReservacion" type="int"/>
+</sequence>
+</complexType>
+</element>
+<element name="MostrarReservacionResponse">
+<complexType>
+<sequence>
+<element name="fechaLlegada" type="string"/>
+<element name="fechaSalida" type="string"/>
+<element name="NumAdultos" type="int"/>
+<element name="NumNinos" type="int"/>
+<element name="tipoHabitacion" type="string"/>
+<element name="precio" type="double"/>
+<element name="idCliente" type="int"/>
+<element name="respuesta" type="string"/>
+</sequence>
+</complexType>
+</element>
+<element name="AgregarHabitacionRequest">
+<complexType>
+<sequence>
+<element name="NumeroHabitacion" type="string"/>
+<element name="Piso" type="string"/>
+<element name="NumPersonas" type="int"/>
+<element name="tipoHabitacion" type="string"/>
+</sequence>
+</complexType>
+</element>
+<element name="AgregarHabitacionResponse">
+<complexType>
+<sequence>
+<element name="respuesta" type="string"/>
+</sequence>
+</complexType>
+</element>
+<element name="EditarHabitacionRequest">
+<complexType>
+<sequence>
+<element name="NumeroHabitacion" type="int"/>
+<element name="Piso" type="string"/>
+<element name="NumPersonas" type="int"/>
+<element name="tipoHabitacion" type="string"/>
+</sequence>
+</complexType>
+</element>
+<element name="EditarHabitacionResponse">
+<complexType>
+<sequence>
+<element name="respuesta" type="string"/>
+</sequence>
+</complexType>
+</element>
+<element name="EliminarHabitacionRequest">
+<complexType>
+<sequence>
+<element name="idHabitacion" type="string"/>
+</sequence>
+</complexType>
+</element>
+<element name="EliminarHabitacionResponse">
+<complexType>
+<sequence>
+<element name="respuesta" type="string"/>
+</sequence>
+</complexType>
+</element>
+<element name="DisponibilidadRequest">
+<complexType>
+<sequence>
+<element name="tipoHabitacion" type="string"/>
+</sequence>
+</complexType>
+</element>
+<element name="DisponibilidadResponse">
+<complexType>
+<sequence>
+<element name="respuesta" type="string"/>
+</sequence>
+</complexType>
+</element>
+</schema>
+</wsdl:types>
+<wsdl:message name="CancelarReservacionResponse">
+<wsdl:part element="tns:CancelarReservacionResponse" name="CancelarReservacionResponse"> </wsdl:part>
+</wsdl:message>
+<wsdl:message name="ReservacionRequest">
+<wsdl:part element="tns:ReservacionRequest" name="ReservacionRequest"> </wsdl:part>
+</wsdl:message>
+<wsdl:message name="AgregarHabitacionRequest">
+<wsdl:part element="tns:AgregarHabitacionRequest" name="AgregarHabitacionRequest"> </wsdl:part>
+</wsdl:message>
+<wsdl:message name="CancelarReservacionRequest">
+<wsdl:part element="tns:CancelarReservacionRequest" name="CancelarReservacionRequest"> </wsdl:part>
+</wsdl:message>
+<wsdl:message name="DisponibilidadRequest">
+<wsdl:part element="tns:DisponibilidadRequest" name="DisponibilidadRequest"> </wsdl:part>
+</wsdl:message>
+<wsdl:message name="MostrarReservacionRequest">
+<wsdl:part element="tns:MostrarReservacionRequest" name="MostrarReservacionRequest"> </wsdl:part>
+</wsdl:message>
+<wsdl:message name="EditarHabitacionRequest">
+<wsdl:part element="tns:EditarHabitacionRequest" name="EditarHabitacionRequest"> </wsdl:part>
+</wsdl:message>
+<wsdl:message name="EliminarHabitacionRequest">
+<wsdl:part element="tns:EliminarHabitacionRequest" name="EliminarHabitacionRequest"> </wsdl:part>
+</wsdl:message>
+<wsdl:message name="EditarClienteResponse">
+<wsdl:part element="tns:EditarClienteResponse" name="EditarClienteResponse"> </wsdl:part>
+</wsdl:message>
+<wsdl:message name="RegistrarClienteRequest">
+<wsdl:part element="tns:RegistrarClienteRequest" name="RegistrarClienteRequest"> </wsdl:part>
+</wsdl:message>
+<wsdl:message name="MostrarReservacionResponse">
+<wsdl:part element="tns:MostrarReservacionResponse" name="MostrarReservacionResponse"> </wsdl:part>
+</wsdl:message>
+<wsdl:message name="EliminarClienteRequest">
+<wsdl:part element="tns:EliminarClienteRequest" name="EliminarClienteRequest"> </wsdl:part>
+</wsdl:message>
+<wsdl:message name="EditarReservacionRequest">
+<wsdl:part element="tns:EditarReservacionRequest" name="EditarReservacionRequest"> </wsdl:part>
+</wsdl:message>
+<wsdl:message name="RegistrarClienteResponse">
+<wsdl:part element="tns:RegistrarClienteResponse" name="RegistrarClienteResponse"> </wsdl:part>
+</wsdl:message>
+<wsdl:message name="EliminarClienteResponse">
+<wsdl:part element="tns:EliminarClienteResponse" name="EliminarClienteResponse"> </wsdl:part>
+</wsdl:message>
+<wsdl:message name="AgregarHabitacionResponse">
+<wsdl:part element="tns:AgregarHabitacionResponse" name="AgregarHabitacionResponse"> </wsdl:part>
+</wsdl:message>
+<wsdl:message name="EditarReservacionResponse">
+<wsdl:part element="tns:EditarReservacionResponse" name="EditarReservacionResponse"> </wsdl:part>
+</wsdl:message>
+<wsdl:message name="EditarHabitacionResponse">
+<wsdl:part element="tns:EditarHabitacionResponse" name="EditarHabitacionResponse"> </wsdl:part>
+</wsdl:message>
+<wsdl:message name="EditarClienteRequest">
+<wsdl:part element="tns:EditarClienteRequest" name="EditarClienteRequest"> </wsdl:part>
+</wsdl:message>
+<wsdl:message name="EliminarHabitacionResponse">
+<wsdl:part element="tns:EliminarHabitacionResponse" name="EliminarHabitacionResponse"> </wsdl:part>
+</wsdl:message>
+<wsdl:message name="DisponibilidadResponse">
+<wsdl:part element="tns:DisponibilidadResponse" name="DisponibilidadResponse"> </wsdl:part>
+</wsdl:message>
+<wsdl:message name="ReservacionResponse">
+<wsdl:part element="tns:ReservacionResponse" name="ReservacionResponse"> </wsdl:part>
+</wsdl:message>
+<wsdl:portType name="HotelPort">
+<wsdl:operation name="CancelarReservacion">
+<wsdl:input message="tns:CancelarReservacionRequest" name="CancelarReservacionRequest"> </wsdl:input>
+<wsdl:output message="tns:CancelarReservacionResponse" name="CancelarReservacionResponse"> </wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="Reservacion">
+<wsdl:input message="tns:ReservacionRequest" name="ReservacionRequest"> </wsdl:input>
+<wsdl:output message="tns:ReservacionResponse" name="ReservacionResponse"> </wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="AgregarHabitacion">
+<wsdl:input message="tns:AgregarHabitacionRequest" name="AgregarHabitacionRequest"> </wsdl:input>
+<wsdl:output message="tns:AgregarHabitacionResponse" name="AgregarHabitacionResponse"> </wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="Disponibilidad">
+<wsdl:input message="tns:DisponibilidadRequest" name="DisponibilidadRequest"> </wsdl:input>
+<wsdl:output message="tns:DisponibilidadResponse" name="DisponibilidadResponse"> </wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="MostrarReservacion">
+<wsdl:input message="tns:MostrarReservacionRequest" name="MostrarReservacionRequest"> </wsdl:input>
+<wsdl:output message="tns:MostrarReservacionResponse" name="MostrarReservacionResponse"> </wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="EditarHabitacion">
+<wsdl:input message="tns:EditarHabitacionRequest" name="EditarHabitacionRequest"> </wsdl:input>
+<wsdl:output message="tns:EditarHabitacionResponse" name="EditarHabitacionResponse"> </wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="EliminarHabitacion">
+<wsdl:input message="tns:EliminarHabitacionRequest" name="EliminarHabitacionRequest"> </wsdl:input>
+<wsdl:output message="tns:EliminarHabitacionResponse" name="EliminarHabitacionResponse"> </wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="EditarCliente">
+<wsdl:input message="tns:EditarClienteRequest" name="EditarClienteRequest"> </wsdl:input>
+<wsdl:output message="tns:EditarClienteResponse" name="EditarClienteResponse"> </wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="RegistrarCliente">
+<wsdl:input message="tns:RegistrarClienteRequest" name="RegistrarClienteRequest"> </wsdl:input>
+<wsdl:output message="tns:RegistrarClienteResponse" name="RegistrarClienteResponse"> </wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="EliminarCliente">
+<wsdl:input message="tns:EliminarClienteRequest" name="EliminarClienteRequest"> </wsdl:input>
+<wsdl:output message="tns:EliminarClienteResponse" name="EliminarClienteResponse"> </wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="EditarReservacion">
+<wsdl:input message="tns:EditarReservacionRequest" name="EditarReservacionRequest"> </wsdl:input>
+<wsdl:output message="tns:EditarReservacionResponse" name="EditarReservacionResponse"> </wsdl:output>
+</wsdl:operation>
+</wsdl:portType>
+<wsdl:binding name="HotelPortSoap11" type="tns:HotelPort">
+<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+<wsdl:operation name="CancelarReservacion">
+<soap:operation soapAction=""/>
+<wsdl:input name="CancelarReservacionRequest">
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output name="CancelarReservacionResponse">
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="Reservacion">
+<soap:operation soapAction=""/>
+<wsdl:input name="ReservacionRequest">
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output name="ReservacionResponse">
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="AgregarHabitacion">
+<soap:operation soapAction=""/>
+<wsdl:input name="AgregarHabitacionRequest">
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output name="AgregarHabitacionResponse">
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="Disponibilidad">
+<soap:operation soapAction=""/>
+<wsdl:input name="DisponibilidadRequest">
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output name="DisponibilidadResponse">
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="MostrarReservacion">
+<soap:operation soapAction=""/>
+<wsdl:input name="MostrarReservacionRequest">
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output name="MostrarReservacionResponse">
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="EditarHabitacion">
+<soap:operation soapAction=""/>
+<wsdl:input name="EditarHabitacionRequest">
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output name="EditarHabitacionResponse">
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="EliminarHabitacion">
+<soap:operation soapAction=""/>
+<wsdl:input name="EliminarHabitacionRequest">
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output name="EliminarHabitacionResponse">
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="EditarCliente">
+<soap:operation soapAction=""/>
+<wsdl:input name="EditarClienteRequest">
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output name="EditarClienteResponse">
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="RegistrarCliente">
+<soap:operation soapAction=""/>
+<wsdl:input name="RegistrarClienteRequest">
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output name="RegistrarClienteResponse">
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="EliminarCliente">
+<soap:operation soapAction=""/>
+<wsdl:input name="EliminarClienteRequest">
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output name="EliminarClienteResponse">
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="EditarReservacion">
+<soap:operation soapAction=""/>
+<wsdl:input name="EditarReservacionRequest">
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output name="EditarReservacionResponse">
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+</wsdl:binding>
+<wsdl:service name="HotelPortService">
+<wsdl:port binding="tns:HotelPortSoap11" name="HotelPortSoap11">
+<soap:address location="http://localhost:8080/Hotel"/>
+</wsdl:port>
+</wsdl:service>
+</wsdl:definitions>

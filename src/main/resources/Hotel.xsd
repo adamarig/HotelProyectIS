@@ -6,9 +6,10 @@
    <sequence>
   	<element name ="nombre" type = "string"></element>
   	<element name ="apellido" type = "string"></element>
-  	<element name ="telefono" type = "int"></element>
+  	<element name ="telefono" type = "string"></element>
   	<element name ="correo" type = "string"></element>
   	<element name ="tipoPago" type = "string"></element>
+  
   	
   </sequence>
   </complexType>
@@ -24,12 +25,12 @@
    <element name ="EditarClienteRequest">
   <complexType>
    <sequence>
-   <element name ="idCliente" type= "int"></element>
-  	<element name ="nombre" type = "string"></element>
+	<element name ="nombre" type = "string"></element>
   	<element name ="apellido" type = "string"></element>
-  	<element name ="telefono" type = "int"></element>
+  	<element name ="telefono" type = "string"></element>
   	<element name ="correo" type = "string"></element>
-  	<element name ="tipoPago" type = "string"></element>	
+  	<element name ="tipoPago" type = "string"></element>
+  	<element name ="idCliente" type = "int"></element>
   </sequence>
   </complexType>
    </element>
@@ -58,6 +59,26 @@
   </sequence>
   </complexType>
    </element>
+  
+   <element name="MostrarClienteRequest">
+		<complexType>
+			<sequence>
+				<element name="idCliente" type="int"></element>
+			</sequence>
+		</complexType>
+	</element>
+	
+	<element name="MostrarClienteResponse">
+		<complexType>
+			<sequence>
+				<element name="nombre" type="string"></element>
+				<element name="apellido" type="string"></element>
+				<element name="telefono" type="string"></element>
+				<element name="correo" type="string"></element>
+				<element name="TipoPago" type="string"></element>
+			</sequence>
+		</complexType>
+	</element>
    
    
   <!-- Reservacion -->
@@ -70,6 +91,7 @@
   	<element name ="NumNinos" type = "int"></element>
   	<element name ="tipoHabitacion" type = "string"></element>
   	<element name ="idCliente" type = "int"></element>
+  	<element name ="idReservacion" type = "int"></element>
   	
   </sequence>
   </complexType>
@@ -104,8 +126,8 @@
   <complexType>
   <sequence>
     <element name ="idReservacion" type = "int"></element>
-  	<element name ="fechaLlegada" type = "string"></element>
-  	<element name ="fechaSalida" type = "string"></element>
+  	<element name ="fechaLlegada" type = "date"></element>
+  	<element name ="fechaSalida" type = "date"></element>
   	<element name ="NumAdultos" type = "int"></element>
   	<element name ="NumNinos" type = "int"></element>
   	<element name ="tipoHabitacion" type = "string"></element>
@@ -152,7 +174,7 @@
   <sequence>
     <element name ="NumeroHabitacion" type = "string"></element>
   	<element name ="Piso" type = "string"></element>
-  	<element name ="NumPersonas" type = "int"></element>
+  	<element name ="NumPersonas" type = "string"></element>
   	<element name ="tipoHabitacion" type = "string"></element>
   </sequence>
   </complexType>
@@ -174,6 +196,7 @@
   	<element name ="Piso" type = "string"></element>
   	<element name ="NumPersonas" type = "int"></element>
   	<element name ="tipoHabitacion" type = "string"></element>
+  	 <element name ="idHabitacion" type = "int"></element>
   </sequence>
   </complexType>
    </element>
@@ -190,7 +213,7 @@
    <element name ="EliminarHabitacionRequest">
   <complexType>
   <sequence>
-    <element name ="idHabitacion" type = "string"></element>
+    <element name ="idHabitacion" type = "int"></element>
   </sequence>
   </complexType>
    </element>
@@ -208,6 +231,7 @@
   <complexType>
   <sequence>
   	<element name ="tipoHabitacion" type = "string"></element>
+  	<element name ="Estado" type = "string"></element>
   </sequence>
   </complexType>
    </element>

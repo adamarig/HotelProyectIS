@@ -10,7 +10,6 @@ package org.example.hotel;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
@@ -25,7 +24,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="respuesta" type="{http://www.w3.org/2001/XMLSchema}string"/>
+ *         &lt;element name="idCliente" type="{http://www.w3.org/2001/XMLSchema}int"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -36,36 +35,27 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "respuesta"
+    "idCliente"
 })
-@XmlRootElement(name = "EditarClienteResponse")
-public class EditarClienteResponse {
+@XmlRootElement(name = "MostrarClienteRequest")
+public class MostrarClienteRequest {
 
-    @XmlElement(required = true)
-    protected String respuesta;
+    protected int idCliente;
 
     /**
-     * Obtiene el valor de la propiedad respuesta.
+     * Obtiene el valor de la propiedad idCliente.
      * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
      */
-    public String getRespuesta() {
-        return respuesta;
+    public int getIdCliente() {
+        return idCliente;
     }
 
     /**
-     * Define el valor de la propiedad respuesta.
+     * Define el valor de la propiedad idCliente.
      * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
      */
-    public void setRespuesta(String value) {
-        this.respuesta = value;
+    public void setIdCliente(int value) {
+        this.idCliente = value;
     }
 
 }

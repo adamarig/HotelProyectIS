@@ -2,7 +2,7 @@
 // Este archivo ha sido generado por la arquitectura JavaTM para la implantación de la referencia de enlace (JAXB) XML v2.2.7 
 // Visite <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
 // Todas las modificaciones realizadas en este archivo se perderán si se vuelve a compilar el esquema de origen. 
-// Generado el: 2020.04.17 a las 07:09:41 PM CDT 
+// Generado el: 2020.05.01 a las 08:19:51 PM CDT 
 //
 
 
@@ -33,6 +33,7 @@ import javax.xml.datatype.XMLGregorianCalendar;
  *         &lt;element name="NumNinos" type="{http://www.w3.org/2001/XMLSchema}int"/>
  *         &lt;element name="tipoHabitacion" type="{http://www.w3.org/2001/XMLSchema}string"/>
  *         &lt;element name="idCliente" type="{http://www.w3.org/2001/XMLSchema}int"/>
+ *         &lt;element name="idReservacion" type="{http://www.w3.org/2001/XMLSchema}int"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -48,7 +49,8 @@ import javax.xml.datatype.XMLGregorianCalendar;
     "numAdultos",
     "numNinos",
     "tipoHabitacion",
-    "idCliente"
+    "idCliente",
+    "idReservacion"
 })
 @XmlRootElement(name = "ReservacionRequest")
 public class ReservacionRequest {
@@ -66,6 +68,7 @@ public class ReservacionRequest {
     @XmlElement(required = true)
     protected String tipoHabitacion;
     protected int idCliente;
+    protected int idReservacion;
 
     /**
      * Obtiene el valor de la propiedad fechaLlegada.
@@ -185,6 +188,22 @@ public class ReservacionRequest {
      */
     public void setIdCliente(int value) {
         this.idCliente = value;
+    }
+
+    /**
+     * Obtiene el valor de la propiedad idReservacion.
+     * 
+     */
+    public int getIdReservacion() {
+        return idReservacion;
+    }
+
+    /**
+     * Define el valor de la propiedad idReservacion.
+     * 
+     */
+    public void setIdReservacion(int value) {
+        this.idReservacion = value;
     }
 
 }

@@ -5,16 +5,17 @@ public class Habitacion {
 	public String NumeroHabitacion;
     public int NumeroPersonas;
 	public String piso;
-
 	public String tipoHabitacion; 
 	
-	
-	public Habitacion( int NumeroPersonas, String tipoHabitacion ,String NumeroHabitacion,String piso) {
+    public String Estado;
+    public String precio;
+	public Habitacion( int NumeroPersonas, String tipoHabitacion ,String NumeroHabitacion,String piso,String Estado, String precio) {
 		this.NumeroHabitacion= NumeroHabitacion;
 		this.piso = piso;
 		this.NumeroPersonas = NumeroPersonas;
 		this.tipoHabitacion = tipoHabitacion;
-	
+		this.Estado = Estado;
+		this.precio = precio;
 	}
 
 

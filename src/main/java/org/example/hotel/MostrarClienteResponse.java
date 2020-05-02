@@ -29,8 +29,7 @@ import javax.xml.bind.annotation.XmlType;
  *         &lt;element name="apellido" type="{http://www.w3.org/2001/XMLSchema}string"/>
  *         &lt;element name="telefono" type="{http://www.w3.org/2001/XMLSchema}string"/>
  *         &lt;element name="correo" type="{http://www.w3.org/2001/XMLSchema}string"/>
- *         &lt;element name="tipoPago" type="{http://www.w3.org/2001/XMLSchema}string"/>
- *         &lt;element name="idCliente" type="{http://www.w3.org/2001/XMLSchema}int"/>
+ *         &lt;element name="TipoPago" type="{http://www.w3.org/2001/XMLSchema}string"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -45,11 +44,10 @@ import javax.xml.bind.annotation.XmlType;
     "apellido",
     "telefono",
     "correo",
-    "tipoPago",
-    "idCliente"
+    "tipoPago"
 })
-@XmlRootElement(name = "EditarClienteRequest")
-public class EditarClienteRequest {
+@XmlRootElement(name = "MostrarClienteResponse")
+public class MostrarClienteResponse {
 
     @XmlElement(required = true)
     protected String nombre;
@@ -59,9 +57,8 @@ public class EditarClienteRequest {
     protected String telefono;
     @XmlElement(required = true)
     protected String correo;
-    @XmlElement(required = true)
+    @XmlElement(name = "TipoPago", required = true)
     protected String tipoPago;
-    protected int idCliente;
 
     /**
      * Obtiene el valor de la propiedad nombre.
@@ -181,22 +178,6 @@ public class EditarClienteRequest {
      */
     public void setTipoPago(String value) {
         this.tipoPago = value;
-    }
-
-    /**
-     * Obtiene el valor de la propiedad idCliente.
-     * 
-     */
-    public int getIdCliente() {
-        return idCliente;
-    }
-
-    /**
-     * Define el valor de la propiedad idCliente.
-     * 
-     */
-    public void setIdCliente(int value) {
-        this.idCliente = value;
     }
 
 }

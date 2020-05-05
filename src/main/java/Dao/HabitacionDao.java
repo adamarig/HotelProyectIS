@@ -6,6 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import database.ConexionAWS;
+import Modelo.Cliente;
 import Modelo.Habitacion;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -19,6 +20,7 @@ public class HabitacionDao {
 	private String numPersonas;
 	private String piso;
 	private String tipoHabitacion;
+	private String estado;
 	
 	private ConexionAWS database;
 	
@@ -35,6 +37,16 @@ public class HabitacionDao {
 	
 	
 	
+	public HabitacionDao(String tipoHabitacion, String estado) {
+		super();
+		this.tipoHabitacion = tipoHabitacion;
+		this.estado = estado;
+	}
+
+
+
+
+
 	public HabitacionDao(int idHabitacion, String numeroHabitacion, String numPersonas, String piso,
 			String tipoHabitacion) {
 
@@ -62,7 +74,12 @@ public class HabitacionDao {
 	}
 	
 	
-///////////////////////Insertar datos en la tabla Habitacion///////////////////////////////////	
+
+
+
+
+
+	///////////////////////Insertar datos en la tabla Habitacion///////////////////////////////////	
 	public boolean AgregarHabitacion() {
 		boolean resultado = false;
 		this.database = new ConexionAWS();
@@ -95,6 +112,21 @@ public class HabitacionDao {
 	}
 
 	
+	public Habitacion Disponibilidad(int id) {
+		Habitacion habitacion = null;
+		this.database = new ConexionAWS();
+		try {
+			ResultSet rs = this.database.connection().createStatement().executeQuery("SELECT * FROM habitacion WHERE idHabitacion="+id);
+			while(rs.next()) {
+				habitacion = new Habitacion(rs.getString("tipoHabitacion"), rs.getString("estado"));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return habitacion;
+	}
+	
+	
 
 	public String getNumeroHabitacion() {
 		// TODO Auto-generated method stub
@@ -120,6 +152,10 @@ public class HabitacionDao {
 		return idHabitacion ;
 	}
 
+	public String getEstado() {
+		// TODO Auto-generated method stub
+		return estado ;
+	}
 
 
 	

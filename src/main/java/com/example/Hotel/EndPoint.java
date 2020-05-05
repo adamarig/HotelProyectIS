@@ -40,6 +40,7 @@ import Dao.ClientesDao;
 import Dao.HabitacionDao;
 import Dao.ReservacionDao;
 import Modelo.Cliente;
+import Modelo.Habitacion;
 import Modelo.Reservacion;
 
 
@@ -144,7 +145,7 @@ public class EndPoint {
 	@PayloadRoot(namespace = "http://www.example.org/Hotel",localPart = "MostrarReservacionRequest")
 
 	@ResponsePayload
-	public MostrarReservacionResponse getConsultarReservacion (@RequestPayload MostrarReservacionRequest peticion) {
+	public MostrarReservacionResponse getMostrarReservacion (@RequestPayload MostrarReservacionRequest peticion) {
 		MostrarReservacionResponse respuesta = new MostrarReservacionResponse();
 		
 		ReservacionDao Reservacion = new ReservacionDao(peticion.getIdReservacion());
@@ -271,7 +272,7 @@ public class EndPoint {
 ///////////////////////////////////////MOSTRAR CLIENTE//////////////////////////////////////////////	
 	@PayloadRoot(namespace = "http://www.example.org/Hotel",localPart = "MostrarClienteRequest")
 	@ResponsePayload
-	public MostrarClienteResponse getConsultarCliente (@RequestPayload MostrarClienteRequest peticion) {
+	public MostrarClienteResponse getMostrarCliente (@RequestPayload MostrarClienteRequest peticion) {
 		MostrarClienteResponse respuesta = new MostrarClienteResponse();
 		ClientesDao cliente = new ClientesDao(peticion.getIdCliente());
 		
@@ -360,11 +361,22 @@ public class EndPoint {
 	@PayloadRoot(namespace = "http://www.example.org/Hotel",localPart = "DisponibilidadRequest")
 
 	@ResponsePayload
-	public DisponibilidadResponse getDisponibilidadHabitacion(@RequestPayload DisponibilidadRequest peticion) {
-		DisponibilidadResponse respuesta= new DisponibilidadResponse();
-		respuesta.setRespuesta("Esta disponible: " + peticion.getTipoHabitacion());
-		return respuesta;
-	
+	public DisponibilidadResponse getDisponibilidad (@RequestPayload DisponibilidadRequest peticion) {
+		DisponibilidadResponse respuesta = new DisponibilidadResponse();
+		HabitacionDao habit = new HabitacionDao(peticion.getIdHabitacion());
+		
+		Habitacion h = habit.Disponibilidad(peticion.getIdHabitacion());
+		
+		
+		if (h != null) {
+			respuesta.setTipoHabitacion(h.getTipoHabitacion());
+			respuesta.setEstado(h.getEstado());
+			
+		
+		
 	}
+		return respuesta;
+	}
+	
 	
 }

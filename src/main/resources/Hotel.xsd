@@ -230,8 +230,8 @@
    <element name ="DisponibilidadRequest">
   <complexType>
   <sequence>
-  	<element name ="tipoHabitacion" type = "string"></element>
-  	<element name ="Estado" type = "string"></element>
+  	<element name ="idHabitacion" type = "int"></element>
+  	
   </sequence>
   </complexType>
    </element>
@@ -240,6 +240,8 @@
    <element name ="DisponibilidadResponse">
   <complexType>
   <sequence>
+  <element name ="tipoHabitacion" type = "string"></element>
+  	<element name ="estado" type = "string"></element>
   	<element name ="respuesta" type = "string"></element>
   </sequence>
   </complexType>

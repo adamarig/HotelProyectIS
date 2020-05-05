@@ -3,26 +3,24 @@ package Modelo;
 public class Habitacion {
 
 	public String NumeroHabitacion;
-    public int NumeroPersonas;
+    public String NumeroPersonas;
 	public String piso;
 	public String tipoHabitacion; 
 	
-    public String Estado;
+    public String estado;
     public String precio;
-	public Habitacion( int NumeroPersonas, String tipoHabitacion ,String NumeroHabitacion,String piso,String Estado, String precio) {
+	public Habitacion( String NumeroPersonas, String tipoHabitacion ,String NumeroHabitacion,String piso,String estado, String precio) {
 		this.NumeroHabitacion= NumeroHabitacion;
 		this.piso = piso;
 		this.NumeroPersonas = NumeroPersonas;
 		this.tipoHabitacion = tipoHabitacion;
-		this.Estado = Estado;
+		this.estado = estado;
 		this.precio = precio;
 	}
 
 
-	@Override
-	public String toString() {
-		return "Habitacion [NumeroHabitacion=" + NumeroHabitacion + ", NumeroPersonas=" + NumeroPersonas + ", piso="
-				+ piso + ", tipoHabitacion=" + tipoHabitacion + "]";
+	public Habitacion(String tipoHabitacion, String Estado) {
+		// TODO Auto-generated constructor stub
 	}
 
 
@@ -31,17 +29,24 @@ public class Habitacion {
 	}
 
 
+	@Override
+	public String toString() {
+		return "Habitacion [NumeroHabitacion=" + NumeroHabitacion + ", NumeroPersonas=" + NumeroPersonas + ", piso="
+				+ piso + ", tipoHabitacion=" + tipoHabitacion + ", estado=" + estado + ", precio=" + precio + "]";
+	}
+
+
 	public void setNumeroHabitacion(String numeroHabitacion) {
 		NumeroHabitacion = numeroHabitacion;
 	}
 
 
-	public int getNumeroPersonas() {
+	public String getNumeroPersonas() {
 		return NumeroPersonas;
 	}
 
 
-	public void setNumeroPersonas(int numeroPersonas) {
+	public void setNumeroPersonas(String numeroPersonas) {
 		NumeroPersonas = numeroPersonas;
 	}
 
@@ -64,6 +69,16 @@ public class Habitacion {
 	public void setTipoHabitacion(String tipoHabitacion) {
 		this.tipoHabitacion = tipoHabitacion;
 	}
+
+
+	public String getEstado() {
+		// TODO Auto-generated method stub
+		return estado;
+	}
 	
+
+	public void setEstado(String estado) {
+		this.estado = estado;
+	}
 
 }

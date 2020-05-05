@@ -41,16 +41,7 @@ public class ReservacionDao {
 		this.idCliente = idCliente;
 	}
 	
-	/**
-	 * @param fechaLlegada
-	 * @param fechaSalida
-	 * @param numAdultos
-	 * @param numNinos
-	 * @param numCamas
-	 * @param tipoHabitacion
-	 * @param precio
-	 * @param idCliente
-	 */
+	
 	public ReservacionDao(String fechaLlegada, String fechaSalida, String NumAdultos, String NumNinos,
 			 String tipoHabitacion, int idCliente) {
 		this.fechaLlegada = Date.valueOf(fechaLlegada);
@@ -100,30 +91,7 @@ public class ReservacionDao {
 	}
 	
 	
-	/**
-	 * Metodo para actualizar una reservacion en la Base de Datos
-	 * @return true si se actualizo la reservacion de forma exitosa en la BD
-	 */
-	public boolean EditarReservacion() {
-		boolean resultado = false;
-		this.database = new ConexionAWS();
-		try {
-			this.database.connection().createStatement().execute(
-					"UPDATE reservaciones SET "
-							+ "fechaLlegada = '"+this.fechaLlegada+"'"
-							+ " ,fechaSalida = '"+this.fechaSalida+"'"
-							+ " ,numAdultos = "+this.NumAdultos
-							+ " ,numNinos = "+this.NumNinos
-							+ " ,tipoHabitacion = '"+this.tipoHabitacion+"'"
-							+ " ,precio = '"+this.precio+"'"
-							+ " ,idCliente = "+this.idCliente
-							+ " WHERE idReservacion = "+this.idReservacion);
-			resultado = true;
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		return resultado;
-	}
+
 	
 	
 	/**
@@ -211,5 +179,34 @@ public class ReservacionDao {
 		return reservacion;
 	}
 
+	public boolean Editar() {
+		boolean resultado = false;
+		this.database = new ConexionAWS();
+		try {
+			this.database.connection().createStatement().execute("UPDATE habitacion SET  fechaLlegada = '"+fechaLlegada+"', fechaSalida = '"+fechaSalida+"', NumAdultos = '"+NumAdultos+"',NumNinos = '"+NumNinos+"', precio = '"+precio+"', idCliente = '"+idCliente+"' WHERE idReservacion = "+ idReservacion);
+			resultado = true;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return resultado;
+	}
+
+	
+	public boolean verificarIdReservacion() {
+		boolean existe = false;
+		this.database = new ConexionAWS();
+			try {
+				final String queryCheck = "SELECT * FROM reservacion WHERE idReservacion = "+this.idReservacion;
+				final PreparedStatement ps = this.database.connection().prepareStatement(queryCheck);
+				final ResultSet resultSet = ps.executeQuery();
+				if(resultSet.next()) {
+				}
+				
+				existe = true;				
+			} catch(SQLException e) {
+				e.printStackTrace();
+			}
+		return existe;
+	}
 
 }

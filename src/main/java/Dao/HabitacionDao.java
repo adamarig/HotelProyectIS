@@ -135,7 +135,7 @@ public class HabitacionDao {
 		return resultado;
 	}
 
-	
+/////////////////////DISPONIBILIDAD DE LA HABITACION///////////////////////////777
 	public Habitacion Disponibilidad(int id) {
 		Habitacion habitacion = null;
 		this.database = new ConexionAWS();
@@ -151,8 +151,36 @@ public class HabitacionDao {
 		return habitacion;
 	}
 	
-	
+//////////////////////////////EDITAR////////////////////////////
+	public boolean Editar() {
+		boolean resultado = false;
+		this.database = new ConexionAWS();
+		try {
+			this.database.connection().createStatement().execute("UPDATE habitacion SET  numeroHabitacion = '"+numeroHabitacion+"', numPersonas = '"+numPersonas+"', piso = '"+piso+"',tipoHabitacion = '"+tipoHabitacion+"', estado = '"+estado+"', precio = '"+precio+"' WHERE idHabitacion = "+ idHabitacion);
+			resultado = true;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return resultado;
+	}
 
+	
+	public boolean verificarIdHabitacion() {
+		boolean existe = false;
+		this.database = new ConexionAWS();
+			try {
+				final String queryCheck = "SELECT * FROM habitacion WHERE idHabitacion = "+this.idHabitacion;
+				final PreparedStatement ps = this.database.connection().prepareStatement(queryCheck);
+				final ResultSet resultSet = ps.executeQuery();
+				if(resultSet.next()) {
+				}
+				
+				existe = true;				
+			} catch(SQLException e) {
+				e.printStackTrace();
+			}
+		return existe;
+	}
 	public String getNumeroHabitacion() {
 		// TODO Auto-generated method stub
 		return null;

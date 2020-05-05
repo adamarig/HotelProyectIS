@@ -75,18 +75,11 @@ public class ClientesDao {
 	
 ///////////////////////Editar datos en la tabla Cliente///////////////////////////////////	
 	
-	public boolean EditarCliente() {
+	public boolean Editar() {
 		boolean resultado = false;
 		this.database = new ConexionAWS();
 		try {
-			this.database.connection().createStatement().execute(
-					"UPDATE clientes SET "
-					+ "nombre = '"+this.nombre+"'"
-					+ "apellido = '"+this.apellido+"'"
-					+ "telefono = '"+this.telefono+"'"
-					+ "correo = '"+this.correo+"'"
-					+ "formaPago = '"+this.tipoPago+"'"
-					+ "WHERE idCliente = "+this.idCliente);
+			this.database.connection().createStatement().execute("UPDATE clientes SET  nombre = '"+nombre+"', apellido = '"+apellido+"', telefono = '"+telefono+"',correo = '"+correo+"', tipoPago = '"+tipoPago+"' WHERE idCliente = "+ idCliente);
 			resultado = true;
 		} catch (SQLException e) {
 			e.printStackTrace();

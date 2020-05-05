@@ -2,7 +2,7 @@
 // Este archivo ha sido generado por la arquitectura JavaTM para la implantación de la referencia de enlace (JAXB) XML v2.2.7 
 // Visite <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
 // Todas las modificaciones realizadas en este archivo se perderán si se vuelve a compilar el esquema de origen. 
-// Generado el: 2020.05.05 a las 12:39:50 AM CDT 
+// Generado el: 2020.05.05 a las 01:47:36 AM CDT 
 //
 
 
@@ -25,8 +25,8 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="NumeroHabitacion" type="{http://www.w3.org/2001/XMLSchema}int"/>
- *         &lt;element name="NumPersonas" type="{http://www.w3.org/2001/XMLSchema}int"/>
+ *         &lt;element name="NumeroHabitacion" type="{http://www.w3.org/2001/XMLSchema}string"/>
+ *         &lt;element name="NumPersonas" type="{http://www.w3.org/2001/XMLSchema}string"/>
  *         &lt;element name="Piso" type="{http://www.w3.org/2001/XMLSchema}string"/>
  *         &lt;element name="tipoHabitacion" type="{http://www.w3.org/2001/XMLSchema}string"/>
  *         &lt;element name="estado" type="{http://www.w3.org/2001/XMLSchema}string"/>
@@ -53,10 +53,10 @@ import javax.xml.bind.annotation.XmlType;
 @XmlRootElement(name = "EditarHabitacionRequest")
 public class EditarHabitacionRequest {
 
-    @XmlElement(name = "NumeroHabitacion")
-    protected int numeroHabitacion;
-    @XmlElement(name = "NumPersonas")
-    protected int numPersonas;
+    @XmlElement(name = "NumeroHabitacion", required = true)
+    protected String numeroHabitacion;
+    @XmlElement(name = "NumPersonas", required = true)
+    protected String numPersonas;
     @XmlElement(name = "Piso", required = true)
     protected String piso;
     @XmlElement(required = true)
@@ -70,32 +70,48 @@ public class EditarHabitacionRequest {
     /**
      * Obtiene el valor de la propiedad numeroHabitacion.
      * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
-    public int getNumeroHabitacion() {
+    public String getNumeroHabitacion() {
         return numeroHabitacion;
     }
 
     /**
      * Define el valor de la propiedad numeroHabitacion.
      * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
      */
-    public void setNumeroHabitacion(int value) {
+    public void setNumeroHabitacion(String value) {
         this.numeroHabitacion = value;
     }
 
     /**
      * Obtiene el valor de la propiedad numPersonas.
      * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
-    public int getNumPersonas() {
+    public String getNumPersonas() {
         return numPersonas;
     }
 
     /**
      * Define el valor de la propiedad numPersonas.
      * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
      */
-    public void setNumPersonas(int value) {
+    public void setNumPersonas(String value) {
         this.numPersonas = value;
     }
 

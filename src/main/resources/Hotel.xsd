@@ -194,8 +194,8 @@
    <element name ="EditarHabitacionRequest">
   <complexType>
   <sequence>
-    <element name ="NumeroHabitacion" type = "int"></element>
-  	<element name ="NumPersonas" type = "int"></element>
+    <element name ="NumeroHabitacion" type = "string"></element>
+  	<element name ="NumPersonas" type = "string"></element>
   	<element name ="Piso" type = "string"></element>
   	<element name ="tipoHabitacion" type = "string"></element>
   	<element name ="estado" type = "string"></element>

@@ -109,21 +109,22 @@ public class EndPoint {
 	@PayloadRoot(namespace = "http://www.example.org/Hotel",localPart = "EditarReservacionRequest")
 
 	@ResponsePayload
-	public EditarReservacionResponse getEditarReservacion (@RequestPayload EditarReservacionRequest peticion) {
+	public EditarReservacionResponse getEditarCliente (@RequestPayload EditarReservacionRequest peticion) {
 		EditarReservacionResponse respuesta = new EditarReservacionResponse();
-		
-		ReservacionDao reservacion = new ReservacionDao(peticion.getFechaLlegada(), peticion.getFechaSalida(), peticion.getNumAdultos(),
-				peticion.getNumNinos(),peticion.getTipoHabitacion(),peticion.getIdCliente());
-		
-		double precio = reservacion.getPrecio();
-		if (reservacion.EditarReservacion()) {
-			respuesta.setRespuesta("Tus datos se han editado con exito'"+reservacion.getIdReservacion()+"");
-			respuesta.setPrecio(precio);
-		} else {
-			respuesta.setRespuesta("No se ha podido editar con exito '"+reservacion.getIdReservacion()+"");
-		}
-
+		ReservacionDao r = new ReservacionDao (peticion.getFechaLlegada(),peticion.getFechaSalida(), peticion.getNumAdultos(), 
+				peticion.getNumNinos(),peticion.getTipoHabitacion(),peticion. getIdCliente());
+		if (r.verificarIdReservacion()) {
+			if (r.Editar()) {
+				respuesta.setRespuesta("Se ha Editado con exito tus datos");
+				respuesta.setPrecio(r.getPrecio());
+			} else {
+				respuesta.setRespuesta("No se ha podido editar tus datos ");
+			}
+		} 
 		return respuesta;
+	
+	
+	
 	}
 	
 	@PayloadRoot(namespace = "http://www.example.org/Hotel",localPart = "CancelarReservacionRequest")
@@ -230,10 +231,10 @@ public class EndPoint {
 		ClientesDao cliente = new ClientesDao (peticion.getIdCliente(),peticion.getNombre(), peticion.getApellido(), 
 				peticion.getTelefono(),peticion.getCorreo(), peticion.getTipoPago());
 		if (cliente.verificarIdCliente()) {
-			if (cliente.EditarCliente()) {
+			if (cliente.Editar()) {
 				respuesta.setRespuesta("Se ha Editado con exito "+cliente.getNombre()+" "+cliente.getApellido()+" "+cliente.getTelefono()+" "+cliente.getCorreo()+"" +cliente.getTipoPago()+"");
 			} else {
-				respuesta.setRespuesta("No se ha podido editar  "+cliente.getNombre()+" "+cliente.getApellido()+"");
+				respuesta.setRespuesta("No se ha podido editar tus datos ");
 			}
 		} 
 		return respuesta;
@@ -321,10 +322,20 @@ public class EndPoint {
 	@PayloadRoot(namespace = "http://www.example.org/Hotel",localPart = "EditarHabitacionRequest")
 
 	@ResponsePayload
-	public EditarHabitacionResponse getEditarHabitacion(@RequestPayload EditarHabitacionRequest peticion) {
-		EditarHabitacionResponse respuesta= new EditarHabitacionResponse();
-		respuesta.setRespuesta("Datos de habitacion han sido editados con exito: " + peticion.getTipoHabitacion());
+	public EditarHabitacionResponse getEditarCliente (@RequestPayload EditarHabitacionRequest peticion) {
+		EditarHabitacionResponse respuesta = new EditarHabitacionResponse();
+		HabitacionDao Habitacion = new HabitacionDao ( peticion . getNumeroHabitacion (), peticion . getPiso(),
+				peticion . getNumPersonas(), peticion . getTipoHabitacion(), peticion . getEstado(), peticion.getPrecio());
+		if (Habitacion.verificarIdHabitacion()) {
+			if (Habitacion.Editar()) {
+				respuesta.setRespuesta("Se ha Editado con exito ");
+			} else {
+				respuesta.setRespuesta("No se ha podido editar tus datos ");
+			}
+		} 
 		return respuesta;
+	
+	
 	
 	}
 	

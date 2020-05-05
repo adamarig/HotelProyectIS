@@ -2,7 +2,7 @@
 // Este archivo ha sido generado por la arquitectura JavaTM para la implantación de la referencia de enlace (JAXB) XML v2.2.7 
 // Visite <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
 // Todas las modificaciones realizadas en este archivo se perderán si se vuelve a compilar el esquema de origen. 
-// Generado el: 2020.05.01 a las 08:19:51 PM CDT 
+// Generado el: 2020.05.04 a las 09:23:56 PM CDT 
 //
 
 
@@ -29,8 +29,8 @@ import javax.xml.datatype.XMLGregorianCalendar;
  *       &lt;sequence>
  *         &lt;element name="fechaLlegada" type="{http://www.w3.org/2001/XMLSchema}date"/>
  *         &lt;element name="fechaSalida" type="{http://www.w3.org/2001/XMLSchema}date"/>
- *         &lt;element name="NumAdultos" type="{http://www.w3.org/2001/XMLSchema}int"/>
- *         &lt;element name="NumNinos" type="{http://www.w3.org/2001/XMLSchema}int"/>
+ *         &lt;element name="NumAdultos" type="{http://www.w3.org/2001/XMLSchema}string"/>
+ *         &lt;element name="NumNinos" type="{http://www.w3.org/2001/XMLSchema}string"/>
  *         &lt;element name="tipoHabitacion" type="{http://www.w3.org/2001/XMLSchema}string"/>
  *         &lt;element name="idCliente" type="{http://www.w3.org/2001/XMLSchema}int"/>
  *         &lt;element name="idReservacion" type="{http://www.w3.org/2001/XMLSchema}int"/>
@@ -61,10 +61,10 @@ public class ReservacionRequest {
     @XmlElement(required = true)
     @XmlSchemaType(name = "date")
     protected XMLGregorianCalendar fechaSalida;
-    @XmlElement(name = "NumAdultos")
-    protected int numAdultos;
-    @XmlElement(name = "NumNinos")
-    protected int numNinos;
+    @XmlElement(name = "NumAdultos", required = true)
+    protected String numAdultos;
+    @XmlElement(name = "NumNinos", required = true)
+    protected String numNinos;
     @XmlElement(required = true)
     protected String tipoHabitacion;
     protected int idCliente;
@@ -121,32 +121,48 @@ public class ReservacionRequest {
     /**
      * Obtiene el valor de la propiedad numAdultos.
      * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
-    public int getNumAdultos() {
+    public String getNumAdultos() {
         return numAdultos;
     }
 
     /**
      * Define el valor de la propiedad numAdultos.
      * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
      */
-    public void setNumAdultos(int value) {
+    public void setNumAdultos(String value) {
         this.numAdultos = value;
     }
 
     /**
      * Obtiene el valor de la propiedad numNinos.
      * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
-    public int getNumNinos() {
+    public String getNumNinos() {
         return numNinos;
     }
 
     /**
      * Define el valor de la propiedad numNinos.
      * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
      */
-    public void setNumNinos(int value) {
+    public void setNumNinos(String value) {
         this.numNinos = value;
     }
 

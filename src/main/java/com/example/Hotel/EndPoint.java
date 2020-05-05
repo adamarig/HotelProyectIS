@@ -1,6 +1,11 @@
 package com.example.Hotel;
 
 
+import java.sql.Date;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+
 import org.example.hotel.AgregarHabitacionRequest;
 import org.example.hotel.AgregarHabitacionResponse;
 import org.example.hotel.CancelarReservacionRequest;
@@ -78,18 +83,18 @@ public class EndPoint {
 	
 	@PayloadRoot(namespace = "http://www.example.org/Hotel",localPart = "ReservacionRequest")
 	@ResponsePayload
-	public ReservacionResponse getHacerReservacion (@RequestPayload ReservacionRequest peticion) {
+	public ReservacionResponse getReservacion (@RequestPayload ReservacionRequest peticion) {
 		ReservacionResponse respuesta = new ReservacionResponse();
 		
-		ReservacionDao reservacion = new ReservacionDao(peticion.getFechaLlegada(), peticion.getFechaSalida(), 
+		ReservacionDao Reservacion = new ReservacionDao(peticion.getFechaLlegada(), peticion.getFechaSalida(), 
 				peticion.getNumAdultos(),peticion.getNumNinos(),peticion.getTipoHabitacion(),peticion.getIdCliente());
 		
-		double precio = reservacion.getPrecio();
-		if (reservacion.AgregarReservacion()) {
-			respuesta.setRespuesta("Se ha registrado la reservacion en el sistema");
+		double precio = Reservacion.getPrecio();
+		if (Reservacion.registrarReservacion()) {
+			respuesta.setRespuesta("Se ha registrado con exito");
 			respuesta.setPrecio(precio);
 		} else {
-			respuesta.setRespuesta("No se ha podido registrar la reservacion en la base de datos");
+			respuesta.setRespuesta("No se ha podido registrar con exito intentalo de nuevo");
 		}
 		
 		return respuesta;
@@ -101,34 +106,70 @@ public class EndPoint {
 	@PayloadRoot(namespace = "http://www.example.org/Hotel",localPart = "EditarReservacionRequest")
 
 	@ResponsePayload
-	public EditarReservacionResponse getLlegada(@RequestPayload EditarReservacionRequest peticion) {
-		EditarReservacionResponse respuesta= new EditarReservacionResponse();
-		respuesta.setRespuesta("Su reservación fue editada con exito: " + peticion.getFechaLlegada() + peticion.getFechaSalida() 
-		+ peticion.getNumAdultos() + peticion.getNumNinos() 
-		+  peticion.getTipoHabitacion()+ peticion.getIdCliente());
+	public EditarReservacionResponse getEditarReservacion (@RequestPayload EditarReservacionRequest peticion) {
+		EditarReservacionResponse respuesta = new EditarReservacionResponse();
+		
+		ReservacionDao reservacion = new ReservacionDao(peticion.getFechaLlegada(), peticion.getFechaSalida(), peticion.getNumAdultos(),
+				peticion.getNumNinos(),peticion.getTipoHabitacion(),peticion.getIdCliente());
+		
+		double precio = reservacion.getPrecio();
+		if (reservacion.EditarReservacion()) {
+			respuesta.setRespuesta("Tus datos se han editado con exito'"+reservacion.getIdReservacion()+"");
+			respuesta.setPrecio(precio);
+		} else {
+			respuesta.setRespuesta("No se ha podido editar con exito '"+reservacion.getIdReservacion()+"");
+		}
+
 		return respuesta;
-	
 	}
 	
 	@PayloadRoot(namespace = "http://www.example.org/Hotel",localPart = "CancelarReservacionRequest")
     
 	@ResponsePayload
-	public CancelarReservacionResponse getLlegada(@RequestPayload CancelarReservacionRequest peticion) {
-		CancelarReservacionResponse respuesta= new CancelarReservacionResponse();
-		respuesta.setRespuesta("Su reservación fue cancelada con exito: " + peticion.getIdReservacion());
+	public CancelarReservacionResponse getCancelarReservacion (@RequestPayload CancelarReservacionRequest peticion) {
+		CancelarReservacionResponse respuesta = new CancelarReservacionResponse();
+		
+		ReservacionDao Reservacion = new ReservacionDao(peticion.getIdReservacion());
+		
+		if (Reservacion.eliminarReservacion()) {
+			respuesta.setRespuesta("Se ha cancelado con exito");
+		} else {
+			respuesta.setRespuesta("No se ha podido cancelar con exito");
+		}
+		
 		return respuesta;
-	
 	}
 	
 	
 	@PayloadRoot(namespace = "http://www.example.org/Hotel",localPart = "MostrarReservacionRequest")
 
 	@ResponsePayload
-	public MostrarReservacionResponse getMostrar(@RequestPayload MostrarReservacionRequest peticion) {
-		MostrarReservacionResponse respuesta= new MostrarReservacionResponse();
-		respuesta.setRespuesta("Su reservación es: " + peticion.getIdReservacion());
+	public MostrarReservacionResponse getConsultarReservacion (@RequestPayload MostrarReservacionRequest peticion) {
+		MostrarReservacionResponse respuesta = new MostrarReservacionResponse();
+		
+		ReservacionDao Reservacion = new ReservacionDao(peticion.getIdReservacion());
+		
+		Reservacion rep = Reservacion.MostrarReservacion(peticion.getIdReservacion());
+		
+		if (rep != null) {
+			java.util.Date date1 = Calendar.getInstance().getTime();  
+            DateFormat dateFormat1 = new SimpleDateFormat("yyyy-mm-dd");  
+            String fechaLlegada = dateFormat1.format(rep.getFechaLlegada());  
+			respuesta.setFechaLlegada(fechaLlegada);
+			
+			java.util.Date date2 = Calendar.getInstance().getTime();  
+            DateFormat dateFormat2 = new SimpleDateFormat("yyyy-mm-dd");  
+            String fechaSalida = dateFormat2.format(rep.getFechaSalida());  
+			respuesta.setFechaLlegada(fechaSalida);
+			
+			respuesta.setIdCliente(rep.getIdCliente());
+			respuesta.setNumAdultos(rep.getNumAdultos());
+			respuesta.setNumNinos(rep.getNumNinos());
+			respuesta.setTipoHabitacion(rep.getTipoHabitacion());
+			respuesta.setPrecio(rep.getPrecio());
+		}
+		
 		return respuesta;
-	
 	}
 ///Clientes///
 /*

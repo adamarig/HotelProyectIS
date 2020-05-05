@@ -9,6 +9,10 @@ import database.ConexionAWS;
 import Modelo.Reservacion;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.sql.Date;
+
+
+
 
 import javax.xml.datatype.XMLGregorianCalendar;
 
@@ -26,112 +30,186 @@ public class ReservacionDao {
 	private double precio;
 	
 	
-	public ReservacionDao(XMLGregorianCalendar xmlGregorianCalendar, XMLGregorianCalendar xmlGregorianCalendar2, int i, int j, String tipoHabitacion,int idCliente ) {
-		
-		this.fechaLlegada = fechaLlegada;
-		this.fechaSalida = fechaSalida;
+	public ReservacionDao(int idReservacion, String fechaLlegada, String fechaSalida, String numAdultos, String numNinos,
+			int numCamas, String tipoHabitacion,  int idCliente) {
+		this.idReservacion = idReservacion;
+		this.fechaLlegada = Date.valueOf(fechaLlegada);
+		this.fechaSalida = Date.valueOf(fechaSalida);
 		this.NumAdultos = NumAdultos;
 		this.NumNinos = NumNinos;
 		this.tipoHabitacion = tipoHabitacion;
 		this.idCliente = idCliente;
 	}
-
-
-	public ReservacionDao(Date fechaLlegada, Date fechaSalida, String numAdultos, String numNinos, String tipoHabitacion,
-			int idCliente, double precio) {
 	
-		this.fechaLlegada = fechaLlegada;
-		this.fechaSalida = fechaSalida;
-		this.NumAdultos = numAdultos;
-		this.NumNinos = numNinos;
+	/**
+	 * @param fechaLlegada
+	 * @param fechaSalida
+	 * @param numAdultos
+	 * @param numNinos
+	 * @param numCamas
+	 * @param tipoHabitacion
+	 * @param precio
+	 * @param idCliente
+	 */
+	public ReservacionDao(String fechaLlegada, String fechaSalida, String NumAdultos, String NumNinos,
+			 String tipoHabitacion, int idCliente) {
+		this.fechaLlegada = Date.valueOf(fechaLlegada);
+		this.fechaSalida = Date.valueOf(fechaSalida);
+		this.NumAdultos = NumAdultos;
+		this.NumNinos = NumNinos;
 		this.tipoHabitacion = tipoHabitacion;
 		this.idCliente = idCliente;
-		this.precio = precio;
-	}
-
-
-	public ReservacionDao() throws ClassNotFoundException{
-		database = new ConexionAWS();
 	}
 	
-
+	/**
+	 * @param idReservacion
+	 */
 	public ReservacionDao(int idReservacion) {
 		this.idReservacion = idReservacion;
 	}
-	
-	
-	
-	
-public ReservacionDao(Date fechaLlegada, Date fechaSalida, String numAdultos, String numNinos, String tipoHabitacion,
-			int idCliente, int idReservacion) {
-		
-		this.fechaLlegada = fechaLlegada;
-		this.fechaSalida = fechaSalida;
-		this.NumAdultos = numAdultos;
-		this.NumNinos = numNinos;
-		this.tipoHabitacion = tipoHabitacion;
-		this.idCliente = idCliente;
-		this.idReservacion = idReservacion;
+
+	public ReservacionDao(XMLGregorianCalendar fechaLlegada2, XMLGregorianCalendar fechaSalida2, String numAdultos2,
+			String numNinos2, String tipoHabitacion2, int idCliente2) {
+		// TODO Auto-generated constructor stub
 	}
 
+	/**
+	 * @return the idReservacion
+	 */
+	public int getIdReservacion() {
+		return idReservacion;
+	}
 
-///////////////////////Insertar datos en la tabla reservacion///////////////////////////////////
 	
-	public boolean AgregarReservacion() {
+	/**
+	 * Metodo para agregar una reservacion
+	 * @return
+	 */
+	public boolean registrarReservacion() {
 		boolean resultado = false;
 		this.database = new ConexionAWS();
 		try {
 			this.database.connection().createStatement().execute(
-					"INSERT INTO reservacion (fechaLlegada,fechaSalida,NumAdultos,NumNinos,tipoHabitacion) VALUES "
-					+ "('"+this.fechaLlegada+"','"+this.fechaSalida+"','"+this.NumAdultos+"','"+this.NumNinos +"','"+this.tipoHabitacion +"','"+this.idCliente +"')");
+					"INSERT INTO reservacion (fechaLlegada, fechaSalida, numAdultos, numNinos, tipoHabitacion, precio, idCliente) VALUES "
+					+ "('"+this.fechaLlegada+"','"+this.fechaSalida+"','"+this.NumAdultos+"','"+this.NumNinos+"','"+this.tipoHabitacion+"','"+this.precio+"','"+this.idCliente+"')");
 			resultado = true;
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		return resultado;
 	}
-
-	public String getFechaLlegada() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	public String getFechaSalida() {
-		// TODO Auto-generated method stub
-		return null;
-	}
 	
-	public String getNumAdultos() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	public String getNumNinos() {
-		// TODO Auto-generated method stub
-		return null;
-	}
 	
-	public String getTipoHabitacion() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	
-	public String getIdCliente() {
-		// TODO Auto-generated method stub
-		return null;
+	/**
+	 * Metodo para actualizar una reservacion en la Base de Datos
+	 * @return true si se actualizo la reservacion de forma exitosa en la BD
+	 */
+	public boolean EditarReservacion() {
+		boolean resultado = false;
+		this.database = new ConexionAWS();
+		try {
+			this.database.connection().createStatement().execute(
+					"UPDATE reservaciones SET "
+							+ "fechaLlegada = '"+this.fechaLlegada+"'"
+							+ " ,fechaSalida = '"+this.fechaSalida+"'"
+							+ " ,numAdultos = "+this.NumAdultos
+							+ " ,numNinos = "+this.NumNinos
+							+ " ,tipoHabitacion = '"+this.tipoHabitacion+"'"
+							+ " ,precio = '"+this.precio+"'"
+							+ " ,idCliente = "+this.idCliente
+							+ " WHERE idReservacion = "+this.idReservacion);
+			resultado = true;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return resultado;
 	}
 	
 	
-	public String getIdReservacion() {
-		// TODO Auto-generated method stub
-		return null;
+	/**
+	 * Metodo para eliminar una reservacion
+	 * @return true si se elimina la reservacion de forma exitosa
+	 */
+	public boolean eliminarReservacion() {
+		boolean resultado = false;
+		this.database = new ConexionAWS();
+		try {
+			this.database.connection().createStatement().execute(
+					"DELETE FROM reservacion WHERE idReservacion = "+this.idReservacion);
+			resultado = true;				
+		} catch(SQLException e) {
+			e.printStackTrace();
+		}
+		return resultado;
 	}
-
-
+	
+	/**
+	 * Metodo para obtener el precio aproximado de la estancia
+	 * @return precio
+	 */
 	public double getPrecio() {
-		// TODO Auto-generated method stub
-		return 0;
+		double costoHabitacion = 0.0;
+		
+		int dias=(int) ((this.fechaSalida.getTime()-this.fechaLlegada.getTime())/86400000);
+		
+		switch (this.tipoHabitacion) {
+			case "Individual":
+				costoHabitacion = 500.0;
+				this.precio = costoHabitacion * dias;
+				break;
+			case "Doble":
+				costoHabitacion = 800.0;
+				this.precio = costoHabitacion * dias;
+				break;
+			case "Triple":
+				costoHabitacion = 1200.0;
+				this.precio = costoHabitacion * dias;
+				break;
+			case "Quad":
+				costoHabitacion = 1350.0;
+				this.precio = costoHabitacion * dias;
+				break;
+			case "Queen":
+				costoHabitacion = 1500.0;
+				this.precio = costoHabitacion * dias;
+				break;
+			case "Doble-Doble":
+				costoHabitacion = 1800.0;
+				this.precio = costoHabitacion * dias;
+				break;
+			case "Suite":
+				costoHabitacion = 2000.0;
+				this.precio = costoHabitacion * dias;
+				break;
+			case "Suite Estudio":
+				costoHabitacion = 3000.0;
+				this.precio = costoHabitacion * dias;
+				break;
+		}
+		
+		return this.precio;
 	}
 	
+	/**
+	 * Metodo para mostrar una reservacion
+	 * @param id
+	 * @return
+	 */
+	public Reservacion MostrarReservacion(int id) {
+		Reservacion reservacion = null;
+		this.database = new ConexionAWS();
+		try {
+			ResultSet rs = this.database.connection().createStatement().executeQuery("SELECT * FROM reservacion WHERE idReservacion="+id);
+			while(rs.next()) {
+				reservacion = new Reservacion(rs.getDate("fechaLlegada"),rs.getDate("fechaSalida"),
+						rs.getString("numAdultos"), rs.getString("NumNinos"),rs.getString("tipoHabitacion"), 
+						rs.getDouble("precio"), rs.getInt("idCliente"));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return reservacion;
+	}
 
 
 }

@@ -87,8 +87,8 @@
   <sequence>
   	<element name ="fechaLlegada" type = "date"></element>
   	<element name ="fechaSalida" type = "date"></element>
-  	<element name ="NumAdultos" type = "int"></element>
-  	<element name ="NumNinos" type = "int"></element>
+  	<element name ="NumAdultos" type = "string"></element>
+  	<element name ="NumNinos" type = "string"></element>
   	<element name ="tipoHabitacion" type = "string"></element>
   	<element name ="idCliente" type = "int"></element>
   	<element name ="idReservacion" type = "int"></element>
@@ -128,8 +128,8 @@
     <element name ="idReservacion" type = "int"></element>
   	<element name ="fechaLlegada" type = "date"></element>
   	<element name ="fechaSalida" type = "date"></element>
-  	<element name ="NumAdultos" type = "int"></element>
-  	<element name ="NumNinos" type = "int"></element>
+  	<element name ="NumAdultos" type = "string"></element>
+  	<element name ="NumNinos" type = "string"></element>
   	<element name ="tipoHabitacion" type = "string"></element>
   	<element name ="idCliente" type = "int"></element>
   </sequence>
@@ -160,8 +160,8 @@
   <sequence>
   	<element name ="fechaLlegada" type = "string"></element>
   	<element name ="fechaSalida" type = "string"></element>
-  	<element name ="NumAdultos" type = "int"></element>
-  	<element name ="NumNinos" type = "int"></element>
+  	<element name ="NumAdultos" type = "string"></element>
+  	<element name ="NumNinos" type = "string"></element>
   	<element name ="tipoHabitacion" type = "string"></element>
   	<element name ="precio" type = "double"></element>
   	<element name ="idCliente" type = "int"></element>

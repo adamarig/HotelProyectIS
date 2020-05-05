@@ -7,8 +7,8 @@ import java.sql.Date;
 public class Reservacion {
 	
 	private int idReservacion;
-	private Date fechallegada;
-	private Date fechasalida;
+	private Date fechaLlegada;
+	private Date fechaSalida;
 	private String NumAdultos;
 	private String NumNinos;
 	private String tipoHabitacion;
@@ -18,35 +18,36 @@ public class Reservacion {
 	
 	
 	
-	public Reservacion(int idReservacion, Date fechallegada, Date fechasalida, String NumAdultos, String NumNinos,
+	public Reservacion(Date fechaLlegada, Date fechaSalida, String NumAdultos, String NumNinos,
 			String tipoHabitacion, double precio, int idCliente) {
 		super();
 		this.idReservacion = idReservacion;
-		this.fechallegada = fechallegada;
-		this.fechasalida = fechasalida;
+		this.fechaLlegada = fechaLlegada;
+		this.fechaSalida = fechaSalida;
 		this.NumAdultos = NumAdultos;
 		this.NumNinos = NumNinos;
 		this.tipoHabitacion = tipoHabitacion;
 		this.precio = precio;
 		this.idCliente = idCliente;
 	}
+	
 	public int getIdReservacion() {
 		return idReservacion;
 	}
 	public void setIdReservacion(int idReservacion) {
 		this.idReservacion = idReservacion;
 	}
-	public Date getFechallegada() {
-		return fechallegada;
+	public Date getFechaLlegada() {
+		return fechaLlegada;
 	}
-	public void setFechallegada(Date fechallegada) {
-		this.fechallegada = fechallegada;
+	public void setFechaLlegada(Date fechaLlegada) {
+		this.fechaLlegada = fechaLlegada;
 	}
-	public Date getFechasalida() {
-		return fechasalida;
+	public Date getFechaSalida() {
+		return fechaSalida;
 	}
-	public void setFechasalida(Date fechasalida) {
-		this.fechasalida = fechasalida;
+	public void setFechaSalida(Date fechaSalida) {
+		this.fechaSalida = fechaSalida;
 	}
 	public String getNumAdultos() {
 		return NumAdultos;

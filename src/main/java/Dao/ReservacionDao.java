@@ -10,6 +10,8 @@ import Modelo.Reservacion;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import javax.xml.datatype.XMLGregorianCalendar;
+
 public class ReservacionDao {
 
 	private Date fechaLlegada;
@@ -24,7 +26,7 @@ public class ReservacionDao {
 	private double precio;
 	
 	
-	public ReservacionDao(Date fechaLlegada, Date fechaSalida, String NumAdultos, String NumNinos, String tipoHabitacion,int idCliente ) {
+	public ReservacionDao(XMLGregorianCalendar xmlGregorianCalendar, XMLGregorianCalendar xmlGregorianCalendar2, int i, int j, String tipoHabitacion,int idCliente ) {
 		
 		this.fechaLlegada = fechaLlegada;
 		this.fechaSalida = fechaSalida;
@@ -122,6 +124,12 @@ public ReservacionDao(Date fechaLlegada, Date fechaSalida, String numAdultos, St
 	public String getIdReservacion() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+
+	public double getPrecio() {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 	
 

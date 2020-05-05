@@ -85,7 +85,7 @@ public class EndPoint {
 				peticion.getNumAdultos(),peticion.getNumNinos(),peticion.getTipoHabitacion(),peticion.getIdCliente());
 		
 		double precio = reservacion.getPrecio();
-		if (reservacion.registrarReservacion()) {
+		if (reservacion.AgregarReservacion()) {
 			respuesta.setRespuesta("Se ha registrado la reservacion en el sistema");
 			respuesta.setPrecio(precio);
 		} else {

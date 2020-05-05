@@ -173,9 +173,11 @@
   <complexType>
   <sequence>
     <element name ="NumeroHabitacion" type = "string"></element>
-  	<element name ="Piso" type = "string"></element>
   	<element name ="NumPersonas" type = "string"></element>
+  	<element name ="Piso" type = "string"></element>
   	<element name ="tipoHabitacion" type = "string"></element>
+  	<element name ="estado" type = "string"></element>
+  	<element name ="precio" type = "string"></element>
   </sequence>
   </complexType>
    </element>
@@ -193,10 +195,12 @@
   <complexType>
   <sequence>
     <element name ="NumeroHabitacion" type = "int"></element>
-  	<element name ="Piso" type = "string"></element>
   	<element name ="NumPersonas" type = "int"></element>
+  	<element name ="Piso" type = "string"></element>
   	<element name ="tipoHabitacion" type = "string"></element>
-  	 <element name ="idHabitacion" type = "int"></element>
+  	<element name ="estado" type = "string"></element>
+  	<element name ="precio" type = "string"></element>
+  	<element name ="idHabitacion" type = "int"></element>
   </sequence>
   </complexType>
    </element>
@@ -240,8 +244,12 @@
    <element name ="DisponibilidadResponse">
   <complexType>
   <sequence>
-  <element name ="tipoHabitacion" type = "string"></element>
+  <element name ="NumeroHabitacion" type = "string"></element>
+  	<element name ="NumPersonas" type = "string"></element>
+  	<element name ="Piso" type = "string"></element>
+  	<element name ="tipoHabitacion" type = "string"></element>
   	<element name ="estado" type = "string"></element>
+  	<element name ="precio" type = "string"></element>
   	<element name ="respuesta" type = "string"></element>
   </sequence>
   </complexType>

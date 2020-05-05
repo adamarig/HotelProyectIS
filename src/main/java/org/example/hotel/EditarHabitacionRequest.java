@@ -2,7 +2,7 @@
 // Este archivo ha sido generado por la arquitectura JavaTM para la implantación de la referencia de enlace (JAXB) XML v2.2.7 
 // Visite <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
 // Todas las modificaciones realizadas en este archivo se perderán si se vuelve a compilar el esquema de origen. 
-// Generado el: 2020.05.04 a las 11:32:30 PM CDT 
+// Generado el: 2020.05.05 a las 12:39:50 AM CDT 
 //
 
 
@@ -26,9 +26,11 @@ import javax.xml.bind.annotation.XmlType;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
  *         &lt;element name="NumeroHabitacion" type="{http://www.w3.org/2001/XMLSchema}int"/>
- *         &lt;element name="Piso" type="{http://www.w3.org/2001/XMLSchema}string"/>
  *         &lt;element name="NumPersonas" type="{http://www.w3.org/2001/XMLSchema}int"/>
+ *         &lt;element name="Piso" type="{http://www.w3.org/2001/XMLSchema}string"/>
  *         &lt;element name="tipoHabitacion" type="{http://www.w3.org/2001/XMLSchema}string"/>
+ *         &lt;element name="estado" type="{http://www.w3.org/2001/XMLSchema}string"/>
+ *         &lt;element name="precio" type="{http://www.w3.org/2001/XMLSchema}string"/>
  *         &lt;element name="idHabitacion" type="{http://www.w3.org/2001/XMLSchema}int"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
@@ -41,9 +43,11 @@ import javax.xml.bind.annotation.XmlType;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
     "numeroHabitacion",
-    "piso",
     "numPersonas",
+    "piso",
     "tipoHabitacion",
+    "estado",
+    "precio",
     "idHabitacion"
 })
 @XmlRootElement(name = "EditarHabitacionRequest")
@@ -51,12 +55,16 @@ public class EditarHabitacionRequest {
 
     @XmlElement(name = "NumeroHabitacion")
     protected int numeroHabitacion;
-    @XmlElement(name = "Piso", required = true)
-    protected String piso;
     @XmlElement(name = "NumPersonas")
     protected int numPersonas;
+    @XmlElement(name = "Piso", required = true)
+    protected String piso;
     @XmlElement(required = true)
     protected String tipoHabitacion;
+    @XmlElement(required = true)
+    protected String estado;
+    @XmlElement(required = true)
+    protected String precio;
     protected int idHabitacion;
 
     /**
@@ -73,6 +81,22 @@ public class EditarHabitacionRequest {
      */
     public void setNumeroHabitacion(int value) {
         this.numeroHabitacion = value;
+    }
+
+    /**
+     * Obtiene el valor de la propiedad numPersonas.
+     * 
+     */
+    public int getNumPersonas() {
+        return numPersonas;
+    }
+
+    /**
+     * Define el valor de la propiedad numPersonas.
+     * 
+     */
+    public void setNumPersonas(int value) {
+        this.numPersonas = value;
     }
 
     /**
@@ -100,22 +124,6 @@ public class EditarHabitacionRequest {
     }
 
     /**
-     * Obtiene el valor de la propiedad numPersonas.
-     * 
-     */
-    public int getNumPersonas() {
-        return numPersonas;
-    }
-
-    /**
-     * Define el valor de la propiedad numPersonas.
-     * 
-     */
-    public void setNumPersonas(int value) {
-        this.numPersonas = value;
-    }
-
-    /**
      * Obtiene el valor de la propiedad tipoHabitacion.
      * 
      * @return
@@ -137,6 +145,54 @@ public class EditarHabitacionRequest {
      */
     public void setTipoHabitacion(String value) {
         this.tipoHabitacion = value;
+    }
+
+    /**
+     * Obtiene el valor de la propiedad estado.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getEstado() {
+        return estado;
+    }
+
+    /**
+     * Define el valor de la propiedad estado.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setEstado(String value) {
+        this.estado = value;
+    }
+
+    /**
+     * Obtiene el valor de la propiedad precio.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getPrecio() {
+        return precio;
+    }
+
+    /**
+     * Define el valor de la propiedad precio.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setPrecio(String value) {
+        this.precio = value;
     }
 
     /**

@@ -39,6 +39,8 @@ import org.springframework.ws.server.endpoint.annotation.ResponsePayload;
 import Dao.ClientesDao;
 import Dao.HabitacionDao;
 import Dao.ReservacionDao;
+
+///Modelo//
 import Modelo.Cliente;
 import Modelo.Habitacion;
 import Modelo.Reservacion;
@@ -302,14 +304,13 @@ public class EndPoint {
 	@ResponsePayload
 	public AgregarHabitacionResponse  getAgregarHabitacion ( @RequestPayload  AgregarHabitacionRequest  peticion ) {
 		AgregarHabitacionResponse respuesta = new  AgregarHabitacionResponse ();
-		HabitacionDao Habitacion =  new  HabitacionDao (0, peticion . getNumeroHabitacion (), peticion . getPiso(),
-				peticion . getNumPersonas(), peticion . getTipoHabitacion());
+		HabitacionDao Habitacion =  new  HabitacionDao ( peticion . getNumeroHabitacion (), peticion . getPiso(),
+				peticion . getNumPersonas(), peticion . getTipoHabitacion(), peticion . getEstado(), peticion.getPrecio());
 		if(Habitacion.AgregarHabitacion()){
 			respuesta . setRespuesta ( "Habitación agregada con exito:" + Habitacion.getNumeroHabitacion() + "" + Habitacion.getPiso()
-			+ ""+Habitacion.getNumPersonas() + ""+Habitacion.getTipoHabitacion()+ "");
+			+ ""+Habitacion.getNumPersonas() + ""+Habitacion.getTipoHabitacion()+ "" +Habitacion.getEstado()+ ""+Habitacion.getPrecio()+ "");
 		} else {
-			respuesta . setRespuesta ( " No se ha agregado la habitacion con exito:" + Habitacion.getNumeroHabitacion() + "" + Habitacion.getPiso()
-			+ ""+Habitacion.getNumPersonas() + ""+Habitacion.getTipoHabitacion() +  "");
+			respuesta . setRespuesta ( " No se ha agregado la habitacion con exito:");
 		}
 		return respuesta;
 		
@@ -369,9 +370,12 @@ public class EndPoint {
 		
 		
 		if (h != null) {
+			respuesta.setNumeroHabitacion(h.getNumeroHabitacion());
+			respuesta.setNumPersonas(h.getNumPersonas());
+			respuesta.setPiso(h.getPiso());
 			respuesta.setTipoHabitacion(h.getTipoHabitacion());
 			respuesta.setEstado(h.getEstado());
-			
+			respuesta.setPrecio(h.getPrecio());
 		
 		
 	}

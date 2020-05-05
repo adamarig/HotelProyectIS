@@ -21,6 +21,7 @@ public class HabitacionDao {
 	private String piso;
 	private String tipoHabitacion;
 	private String estado;
+	private String precio;
 	
 	private ConexionAWS database;
 	
@@ -37,6 +38,29 @@ public class HabitacionDao {
 	
 	
 	
+	public HabitacionDao(String numeroHabitacion, String numPersonas, String piso, String tipoHabitacion, String estado,
+			String precio) {
+		
+		this.numeroHabitacion = numeroHabitacion;
+		this.numPersonas = numPersonas;
+		this.piso = piso;
+		this.tipoHabitacion = tipoHabitacion;
+		this.estado = estado;
+		this.precio = precio;
+	}
+
+
+
+
+
+	public String getPrecio() {
+		return precio;
+	}
+
+
+
+
+
 	public HabitacionDao(String tipoHabitacion, String estado) {
 		super();
 		this.tipoHabitacion = tipoHabitacion;
@@ -85,8 +109,8 @@ public class HabitacionDao {
 		this.database = new ConexionAWS();
 		try {
 			this.database.connection().createStatement().execute(
-					"INSERT INTO habitacion (numeroHabitacion,numPersonas,piso,tipoHabitacion) VALUES "
-					+ "('"+this.numeroHabitacion+"','"+this.numPersonas+"','"+this.piso+"','"+this.tipoHabitacion +"')");
+					"INSERT INTO habitacion (numeroHabitacion,numPersonas,piso,tipoHabitacion,estado,precio) VALUES "
+					+ "('"+this.numeroHabitacion+"','"+this.numPersonas+"','"+this.piso+"','"+this.tipoHabitacion +"','"+this.estado +"','"+this.precio +"')");
 			resultado = true;
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -116,9 +140,10 @@ public class HabitacionDao {
 		Habitacion habitacion = null;
 		this.database = new ConexionAWS();
 		try {
-			ResultSet rs = this.database.connection().createStatement().executeQuery("SELECT * FROM habitacion WHERE idHabitacion="+id);
-			while(rs.next()) {
-				habitacion = new Habitacion(rs.getString("tipoHabitacion"), rs.getString("estado"));
+			ResultSet rs = database.connection().createStatement().executeQuery("SELECT * FROM habitacion WHERE idHabitacion="+id);
+			while(rs!= null && rs.next()) {
+				habitacion = new Habitacion(rs.getString("numeroHabitacion"), rs.getString("numPersonas")
+						, rs.getString("piso"), rs.getString("tipoHabitacion"),rs.getString("estado"),rs.getString("precio"));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();

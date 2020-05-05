@@ -6,9 +6,10 @@ public class Habitacion {
     public String NumeroPersonas;
 	public String piso;
 	public String tipoHabitacion; 
-	
-    public String estado;
+	public String estado;
     public String precio;
+    
+    
 	public Habitacion( String NumeroPersonas, String tipoHabitacion ,String NumeroHabitacion,String piso,String estado, String precio) {
 		this.NumeroHabitacion= NumeroHabitacion;
 		this.piso = piso;
@@ -18,10 +19,23 @@ public class Habitacion {
 		this.precio = precio;
 	}
 
+	
 
 	public Habitacion(String tipoHabitacion, String Estado) {
 		// TODO Auto-generated constructor stub
 	}
+
+
+	public String getPrecio() {
+		return precio;
+	}
+
+
+
+	public void setPrecio(String precio) {
+		this.precio = precio;
+	}
+
 
 
 	public String getNumeroHabitacion() {
@@ -79,6 +93,13 @@ public class Habitacion {
 
 	public void setEstado(String estado) {
 		this.estado = estado;
+	}
+
+
+
+	public String getNumPersonas() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

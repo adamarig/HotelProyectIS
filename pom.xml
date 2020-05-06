@@ -9,10 +9,10 @@
 		<version>2.2.5.RELEASE</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.Autobus1</groupId>
-	<artifactId>Autobus1</artifactId>
+	<groupId>com.Hotel_Adamari</groupId>
+	<artifactId>Hotel_Adamari</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>Autobus1</name>
+	<name>Hotel_Adamari</name>
 	<description>Demo project for Spring Boot</description>
 
 	<properties>

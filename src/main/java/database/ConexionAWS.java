@@ -46,7 +46,7 @@ public class ConexionAWS {
         this.username = username;
         this.password = password;
         try {
-            conn = DriverManager.getConnection("jdbc:mysql://db4free.net:3306/hotel_adamari", "jissell", "root1704_");
+            conn = DriverManager.getConnection("jdbc:mysql://db4free.net:3306/hotel_adamari?autoReconnect=true&useSSL=false", "jissell", "root1704_");
         } catch (SQLException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();

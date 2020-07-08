@@ -2,7 +2,7 @@
 // Este archivo ha sido generado por la arquitectura JavaTM para la implantación de la referencia de enlace (JAXB) XML v2.2.7 
 // Visite <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
 // Todas las modificaciones realizadas en este archivo se perderán si se vuelve a compilar el esquema de origen. 
-// Generado el: 2020.05.05 a las 01:47:36 AM CDT 
+// Generado el: 2020.07.07 a las 01:33:37 AM CDT 
 //
 
 
@@ -30,6 +30,8 @@ import javax.xml.bind.annotation.XmlType;
  *         &lt;element name="NumAdultos" type="{http://www.w3.org/2001/XMLSchema}string"/>
  *         &lt;element name="NumNinos" type="{http://www.w3.org/2001/XMLSchema}string"/>
  *         &lt;element name="tipoHabitacion" type="{http://www.w3.org/2001/XMLSchema}string"/>
+ *         &lt;element name="nombreCliente" type="{http://www.w3.org/2001/XMLSchema}string"/>
+ *         &lt;element name="telefono" type="{http://www.w3.org/2001/XMLSchema}string"/>
  *         &lt;element name="precio" type="{http://www.w3.org/2001/XMLSchema}double"/>
  *         &lt;element name="idCliente" type="{http://www.w3.org/2001/XMLSchema}int"/>
  *         &lt;element name="respuesta" type="{http://www.w3.org/2001/XMLSchema}string"/>
@@ -48,6 +50,8 @@ import javax.xml.bind.annotation.XmlType;
     "numAdultos",
     "numNinos",
     "tipoHabitacion",
+    "nombreCliente",
+    "telefono",
     "precio",
     "idCliente",
     "respuesta"
@@ -65,6 +69,10 @@ public class MostrarReservacionResponse {
     protected String numNinos;
     @XmlElement(required = true)
     protected String tipoHabitacion;
+    @XmlElement(required = true)
+    protected String nombreCliente;
+    @XmlElement(required = true)
+    protected String telefono;
     protected double precio;
     protected int idCliente;
     @XmlElement(required = true)
@@ -188,6 +196,54 @@ public class MostrarReservacionResponse {
      */
     public void setTipoHabitacion(String value) {
         this.tipoHabitacion = value;
+    }
+
+    /**
+     * Obtiene el valor de la propiedad nombreCliente.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getNombreCliente() {
+        return nombreCliente;
+    }
+
+    /**
+     * Define el valor de la propiedad nombreCliente.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setNombreCliente(String value) {
+        this.nombreCliente = value;
+    }
+
+    /**
+     * Obtiene el valor de la propiedad telefono.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getTelefono() {
+        return telefono;
+    }
+
+    /**
+     * Define el valor de la propiedad telefono.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setTelefono(String value) {
+        this.telefono = value;
     }
 
     /**

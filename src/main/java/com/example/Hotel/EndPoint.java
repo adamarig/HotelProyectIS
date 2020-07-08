@@ -1,11 +1,9 @@
 package com.example.Hotel;
 
-
 import java.sql.Date;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-
 import org.example.hotel.AgregarHabitacionRequest;
 import org.example.hotel.AgregarHabitacionResponse;
 import org.example.hotel.CancelarReservacionRequest;
@@ -61,26 +59,26 @@ public class EndPoint {
 		return respuesta ;
 	
 	}
+	*/
 	
-	
-	@PayloadRoot(namespace = "http://www.example.org/Hotel",localPart = "ReservacionRequest")
+	/*@PayloadRoot(namespace = "http://www.example.org/Hotel",localPart = "ReservacionRequest")
 
 	@ResponsePayload
-	public ReservacionResponse  getAgregarHabitacion ( @RequestPayload  ReservacionRequest  peticion ) {
+	public ReservacionResponse  getAgregarReservacion ( @RequestPayload  ReservacionRequest  peticion ) {
 		ReservacionResponse respuesta = new  ReservacionResponse ();
-		ReservacionDao Reservacion =  new  ReservacionDao ( peticion . getFechaLlegada (), peticion . getFechaSalida(),
-				peticion . getNumAdultos(), peticion . getNumNinos(), peticion . getTipoHabitacion(), peticion . getIdCliente(), peticion . getIdReservacion());
-		if(Reservacion.AgregarReservacion()){
-			respuesta . setRespuesta ( "Habitación agregada con exito:" + Reservacion.getFechaLlegada() + "" + Reservacion.getFechaSalida()
-			+ ""+Reservacion.getNumAdultos() + ""+Reservacion.getNumNinos()+ "" +Reservacion.getTipoHabitacion()+ "" +Reservacion.getIdCliente());
+		ReservacionDao Reservacion1 =  new  ReservacionDao ( peticion . getFechaLlegada (), peticion . getFechaSalida(),
+				peticion . getNumAdultos(), peticion . getNumNinos(), peticion . getTipoHabitacion(), peticion . getNombreCliente(), peticion . getTelefono() ,peticion . getIdCliente());
+		if(Reservacion1.RegistrarReservacion1()){
+			respuesta . setRespuesta ( "Tu reservación es un exito:");
+			respuesta.setPrecio(Reservacion1.getPrecio());
+			
 		} else {
-			respuesta . setRespuesta ( " No se ha agregado la habitacion con exito:" + Reservacion.getFechaLlegada() + "" + Reservacion.getFechaSalida()
-			+ ""+Reservacion.getNumAdultos() + ""+Reservacion.getNumNinos()+ "" +Reservacion.getTipoHabitacion()+ "" +Reservacion.getIdCliente());
+			respuesta . setRespuesta ( " No se ha agregado tu reservacion con exito:" );
 		}
 		return respuesta;
 		
-		}
-		*/
+		}*/
+		
 	
 	
 	
@@ -89,11 +87,11 @@ public class EndPoint {
 	public ReservacionResponse getReservacion (@RequestPayload ReservacionRequest peticion) {
 		ReservacionResponse respuesta = new ReservacionResponse();
 		
-		ReservacionDao Reservacion = new ReservacionDao(peticion.getFechaLlegada(), peticion.getFechaSalida(), 
-				peticion.getNumAdultos(),peticion.getNumNinos(),peticion.getTipoHabitacion(),peticion.getIdCliente());
+		ReservacionDao Reservacion1 = new ReservacionDao(peticion.getFechaLlegada(), peticion.getFechaSalida(), 
+				peticion.getNumAdultos(),peticion.getNumNinos(),peticion.getTipoHabitacion(),peticion.getNombreCliente(),peticion.getTelefono(),peticion.getIdCliente());
 		
-		double precio = Reservacion.getPrecio();
-		if (Reservacion.registrarReservacion()) {
+		double precio = Reservacion1.getPrecio();
+		if (Reservacion1.RegistrarReservacion1()) {
 			respuesta.setRespuesta("Se ha registrado con exito");
 			respuesta.setPrecio(precio);
 		} else {
@@ -109,22 +107,21 @@ public class EndPoint {
 	@PayloadRoot(namespace = "http://www.example.org/Hotel",localPart = "EditarReservacionRequest")
 
 	@ResponsePayload
-	public EditarReservacionResponse getEditarCliente (@RequestPayload EditarReservacionRequest peticion) {
+	public EditarReservacionResponse getEditarReservacion (@RequestPayload EditarReservacionRequest peticion) {
 		EditarReservacionResponse respuesta = new EditarReservacionResponse();
-		ReservacionDao r = new ReservacionDao (peticion.getFechaLlegada(),peticion.getFechaSalida(), peticion.getNumAdultos(), 
-				peticion.getNumNinos(),peticion.getTipoHabitacion(),peticion. getIdCliente());
-		if (r.verificarIdReservacion()) {
-			if (r.Editar()) {
-				respuesta.setRespuesta("Se ha Editado con exito tus datos");
-				respuesta.setPrecio(r.getPrecio());
-			} else {
-				respuesta.setRespuesta("No se ha podido editar tus datos ");
-			}
-		} 
+		
+		ReservacionDao reservacion = new ReservacionDao(peticion.getIdReservacion(),peticion.getFechaLlegada(), peticion.getFechaSalida(),
+				peticion.getNumAdultos(),peticion.getNumNinos(),peticion.getTipoHabitacion(),peticion.getNombreCliente(),peticion.getTelefono(),peticion.getIdCliente());
+		
+		double precio = reservacion.getPrecio();
+		if (reservacion.EditarR()) {
+			respuesta.setRespuesta("Se ha actualizado la reservacion  '"+reservacion.getIdReservacion()+"' en el sistema");
+			respuesta.setPrecio(precio);
+		} else {
+			respuesta.setRespuesta("No se ha podido actualizar la reservacion  '"+reservacion.getIdReservacion()+"' en la base de datos");
+		}
+
 		return respuesta;
-	
-	
-	
 	}
 	
 	@PayloadRoot(namespace = "http://www.example.org/Hotel",localPart = "CancelarReservacionRequest")
@@ -151,26 +148,21 @@ public class EndPoint {
 	public MostrarReservacionResponse getMostrarReservacion (@RequestPayload MostrarReservacionRequest peticion) {
 		MostrarReservacionResponse respuesta = new MostrarReservacionResponse();
 		
-		ReservacionDao Reservacion = new ReservacionDao(peticion.getIdReservacion());
+		ReservacionDao reservacion = new ReservacionDao(peticion.getIdReservacion());
 		
-		Reservacion rep = Reservacion.MostrarReservacion(peticion.getIdReservacion());
 		
-		if (rep != null) {
-			java.util.Date date1 = Calendar.getInstance().getTime();  
-            DateFormat dateFormat1 = new SimpleDateFormat("yyyy-mm-dd");  
-            String fechaLlegada = dateFormat1.format(rep.getFechaLlegada());  
-			respuesta.setFechaLlegada(fechaLlegada);
-			
-			java.util.Date date2 = Calendar.getInstance().getTime();  
-            DateFormat dateFormat2 = new SimpleDateFormat("yyyy-mm-dd");  
-            String fechaSalida = dateFormat2.format(rep.getFechaSalida());  
-			respuesta.setFechaLlegada(fechaSalida);
-			
-			respuesta.setIdCliente(rep.getIdCliente());
-			respuesta.setNumAdultos(rep.getNumAdultos());
-			respuesta.setNumNinos(rep.getNumNinos());
-			respuesta.setTipoHabitacion(rep.getTipoHabitacion());
-			respuesta.setPrecio(rep.getPrecio());
+		Reservacion r = reservacion.MostrarReservacion(peticion.getIdReservacion());
+		
+		if (r != null) {  
+			respuesta.setFechaLlegada(r.getFechaLlegada().toString());
+			respuesta.setFechaSalida(r.getFechaSalida().toString());
+			respuesta.setIdCliente(r.getIdCliente());
+			respuesta.setNumAdultos(r.getNumAdultos());
+			respuesta.setNumNinos(r.getNumNinos());
+			respuesta.setTipoHabitacion(r.getTipoHabitacion());
+			respuesta.setNombreCliente(r.getNombreCliente());
+			respuesta.setTelefono(r.getTelefono());
+			respuesta.setPrecio(r.getPrecio());
 		}
 		
 		return respuesta;
@@ -198,11 +190,9 @@ public class EndPoint {
 		ClientesDao Cliente =  new  ClientesDao ( 0,peticion . getNombre (), peticion . getApellido(),
 				peticion . getTelefono(), peticion . getCorreo(), peticion . getTipoPago());
 		if(Cliente.RegistrarCliente()){
-			respuesta . setRespuesta ( "Tu registro ha sido un exito:" + Cliente.getNombre() + "" + Cliente.getApellido()
-			+ "");
+			respuesta . setRespuesta ( "Tu registro ha sido un exito:" );
 		} else {
-			respuesta . setRespuesta ( " No se ha registrado con exito:" + Cliente.getNombre() + "" + Cliente.getApellido()
-			+ ""+Cliente.getTelefono() + ""+Cliente.getCorreo() + ""+ Cliente.getTipoPago() + "");
+			respuesta . setRespuesta ( " No se ha registrado con exito:" );
 		}
 		return respuesta;
 		
@@ -232,7 +222,7 @@ public class EndPoint {
 				peticion.getTelefono(),peticion.getCorreo(), peticion.getTipoPago());
 		if (cliente.verificarIdCliente()) {
 			if (cliente.Editar()) {
-				respuesta.setRespuesta("Se ha Editado con exito "+cliente.getNombre()+" "+cliente.getApellido()+" "+cliente.getTelefono()+" "+cliente.getCorreo()+"" +cliente.getTipoPago()+"");
+				respuesta.setRespuesta("Se ha Editado con exito ");
 			} else {
 				respuesta.setRespuesta("No se ha podido editar tus datos ");
 			}
@@ -308,8 +298,7 @@ public class EndPoint {
 		HabitacionDao Habitacion =  new  HabitacionDao ( peticion . getNumeroHabitacion (), peticion . getPiso(),
 				peticion . getNumPersonas(), peticion . getTipoHabitacion(), peticion . getEstado(), peticion.getPrecio());
 		if(Habitacion.AgregarHabitacion()){
-			respuesta . setRespuesta ( "Habitación agregada con exito:" + Habitacion.getNumeroHabitacion() + "" + Habitacion.getPiso()
-			+ ""+Habitacion.getNumPersonas() + ""+Habitacion.getTipoHabitacion()+ "" +Habitacion.getEstado()+ ""+Habitacion.getPrecio()+ "");
+			respuesta . setRespuesta ( "Habitación agregada con exito:");
 		} else {
 			respuesta . setRespuesta ( " No se ha agregado la habitacion con exito:");
 		}

@@ -2,7 +2,7 @@
 // Este archivo ha sido generado por la arquitectura JavaTM para la implantación de la referencia de enlace (JAXB) XML v2.2.7 
 // Visite <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
 // Todas las modificaciones realizadas en este archivo se perderán si se vuelve a compilar el esquema de origen. 
-// Generado el: 2020.05.05 a las 01:47:36 AM CDT 
+// Generado el: 2020.07.07 a las 01:33:37 AM CDT 
 //
 
 
@@ -12,9 +12,7 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
-import javax.xml.datatype.XMLGregorianCalendar;
 
 
 /**
@@ -28,11 +26,13 @@ import javax.xml.datatype.XMLGregorianCalendar;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
  *         &lt;element name="idReservacion" type="{http://www.w3.org/2001/XMLSchema}int"/>
- *         &lt;element name="fechaLlegada" type="{http://www.w3.org/2001/XMLSchema}date"/>
- *         &lt;element name="fechaSalida" type="{http://www.w3.org/2001/XMLSchema}date"/>
+ *         &lt;element name="fechaLlegada" type="{http://www.w3.org/2001/XMLSchema}string"/>
+ *         &lt;element name="fechaSalida" type="{http://www.w3.org/2001/XMLSchema}string"/>
  *         &lt;element name="NumAdultos" type="{http://www.w3.org/2001/XMLSchema}string"/>
  *         &lt;element name="NumNinos" type="{http://www.w3.org/2001/XMLSchema}string"/>
  *         &lt;element name="tipoHabitacion" type="{http://www.w3.org/2001/XMLSchema}string"/>
+ *         &lt;element name="nombreCliente" type="{http://www.w3.org/2001/XMLSchema}string"/>
+ *         &lt;element name="telefono" type="{http://www.w3.org/2001/XMLSchema}string"/>
  *         &lt;element name="idCliente" type="{http://www.w3.org/2001/XMLSchema}int"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
@@ -50,6 +50,8 @@ import javax.xml.datatype.XMLGregorianCalendar;
     "numAdultos",
     "numNinos",
     "tipoHabitacion",
+    "nombreCliente",
+    "telefono",
     "idCliente"
 })
 @XmlRootElement(name = "EditarReservacionRequest")
@@ -57,19 +59,20 @@ public class EditarReservacionRequest {
 
     protected int idReservacion;
     @XmlElement(required = true)
-    @XmlSchemaType(name = "date")
-    protected XMLGregorianCalendar fechaLlegada;
+    protected String fechaLlegada;
     @XmlElement(required = true)
-    @XmlSchemaType(name = "date")
-    protected XMLGregorianCalendar fechaSalida;
+    protected String fechaSalida;
     @XmlElement(name = "NumAdultos", required = true)
     protected String numAdultos;
     @XmlElement(name = "NumNinos", required = true)
     protected String numNinos;
     @XmlElement(required = true)
     protected String tipoHabitacion;
+    @XmlElement(required = true)
+    protected String nombreCliente;
+    @XmlElement(required = true)
+    protected String telefono;
     protected int idCliente;
-	public String getPrecio;
 
     /**
      * Obtiene el valor de la propiedad idReservacion.
@@ -92,10 +95,10 @@ public class EditarReservacionRequest {
      * 
      * @return
      *     possible object is
-     *     {@link XMLGregorianCalendar }
+     *     {@link String }
      *     
      */
-    public XMLGregorianCalendar getFechaLlegada() {
+    public String getFechaLlegada() {
         return fechaLlegada;
     }
 
@@ -104,10 +107,10 @@ public class EditarReservacionRequest {
      * 
      * @param value
      *     allowed object is
-     *     {@link XMLGregorianCalendar }
+     *     {@link String }
      *     
      */
-    public void setFechaLlegada(XMLGregorianCalendar value) {
+    public void setFechaLlegada(String value) {
         this.fechaLlegada = value;
     }
 
@@ -116,10 +119,10 @@ public class EditarReservacionRequest {
      * 
      * @return
      *     possible object is
-     *     {@link XMLGregorianCalendar }
+     *     {@link String }
      *     
      */
-    public XMLGregorianCalendar getFechaSalida() {
+    public String getFechaSalida() {
         return fechaSalida;
     }
 
@@ -128,10 +131,10 @@ public class EditarReservacionRequest {
      * 
      * @param value
      *     allowed object is
-     *     {@link XMLGregorianCalendar }
+     *     {@link String }
      *     
      */
-    public void setFechaSalida(XMLGregorianCalendar value) {
+    public void setFechaSalida(String value) {
         this.fechaSalida = value;
     }
 
@@ -205,6 +208,54 @@ public class EditarReservacionRequest {
      */
     public void setTipoHabitacion(String value) {
         this.tipoHabitacion = value;
+    }
+
+    /**
+     * Obtiene el valor de la propiedad nombreCliente.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getNombreCliente() {
+        return nombreCliente;
+    }
+
+    /**
+     * Define el valor de la propiedad nombreCliente.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setNombreCliente(String value) {
+        this.nombreCliente = value;
+    }
+
+    /**
+     * Obtiene el valor de la propiedad telefono.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getTelefono() {
+        return telefono;
+    }
+
+    /**
+     * Define el valor de la propiedad telefono.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setTelefono(String value) {
+        this.telefono = value;
     }
 
     /**

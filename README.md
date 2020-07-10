@@ -1,6 +1,7 @@
 # HotelProyectIS
 ## Sistemas para Hotel
-
+Url Soap:http://54.162.111.41:8080/Hotel.wsdl
+Url Rest: http://54.162.111.41/Rest/index.html
 #### Descripción 
 
 Es un sistema web para un hotel
